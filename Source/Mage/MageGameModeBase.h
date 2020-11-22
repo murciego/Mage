@@ -13,5 +13,4 @@ UCLASS()
 class MAGE_API AMageGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
 };
