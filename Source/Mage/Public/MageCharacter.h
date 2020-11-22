@@ -8,6 +8,7 @@
 
 class UCameraComponent;
 class USpringArmComponent;
+class AMageWeapon;
 
 UCLASS()
 class MAGE_API AMageCharacter : public ACharacter
@@ -28,10 +29,34 @@ protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, Category = "Components")
 	USpringArmComponent* SpringArmComp;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Player")
+	float ZoomedFOV;
+	UPROPERTY(EditDefaultsOnly, Category = "Player", meta = (ClampMin = 0.1, ClampMax = 100))
+	float ZoomInterpSpeed;
+	bool bWantsToZoom;
+	float DefaultFOV;
+
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 	void BeginCrouch();
 	void EndCrouch();
+	void BeginRun();
+	void EndRun();
+	void BeginZoom();
+	void EndZoom();
+	void Action();
+	void Wheel(float Value);
+	void Menu();
+
+	AMageWeapon* CurrentWeapon;
+	
+	UPROPERTY(EditDefaultsOnly, Category="Player")
+	TSubclassOf<AMageWeapon> StarterWeaponClass;
+	UPROPERTY(VisibleDefaultsOnly, Category="Player")
+	FName WeaponAttachSocketName;
+
+	void Fire();
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

@@ -4,27 +4,28 @@
 #include "MageWeapon.h"
 #include <Runtime\Engine\Public\DrawDebugHelpers.h>
 #include "Kismet/GameplayStatics.h"
+#include "Particles/ParticleSystem.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Particles/ParticleSystem.h"
+#include "Particles/ParticleSystemComponent.h"
 
+static int32 DebugWeaponDrawing = 0;
+FAutoConsoleVariableRef CVARDebugWeaponDrawing(
+	TEXT("COOP.DebugWeapons"),
+	DebugWeaponDrawing,
+	TEXT("Draw Debug Lines for weapons"),
+	ECVF_Cheat);
 // Sets default values
 AMageWeapon::AMageWeapon()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
 	MeshComp = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MeshComp"));
 	RootComponent = MeshComp;
+	MuzzleSocketName = "MuzzleSocket";
+	TracerTargetName = "BeamEnd";
 }
 
-// Called when the game starts or when spawned
-void AMageWeapon::BeginPlay()
-{
-	Super::BeginPlay();
-}
-
-// Called every frame
 void AMageWeapon::Tick(float DeltaTime)
 {
-	Super::Tick(DeltaTime);
 }
 
 void AMageWeapon::Fire() {
@@ -45,6 +46,9 @@ void AMageWeapon::Fire() {
 		// Mas exactitud
 		QueryParams.bTraceComplex = true;
 
+		// ParticleTargetParam
+		FVector TracerEndPoint = TraceEnd;
+
 		FHitResult Hit;
 		if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, ECC_Visibility)) {
 			// Hit
@@ -52,9 +56,44 @@ void AMageWeapon::Fire() {
 			AActor* HitActor = Hit.GetActor();
 
 			UGameplayStatics::ApplyPointDamage(HitActor, 20.0f, ShotDirection, Hit, MyOwner->GetInstigatorController(), this, DamageType);
+			if (ImpactEffect) {
+				UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, Hit.ImpactPoint, Hit.ImpactNormal.Rotation());
+			}
+			TracerEndPoint = Hit.ImpactPoint;
 		}
-
-		DrawDebugLine(GetWorld(), EyeLocation, TraceEnd, FColor::White, false, 1.0f, 0, 1.0f);
-
+		if (DebugWeaponDrawing > 0.0f) {
+			DrawDebugLine(GetWorld(), EyeLocation, TraceEnd, FColor::White, false, 10.0f, 0, 2.0f);
+		}
+		PlayFireEffects(TracerEndPoint);
 	}
+}
+
+void AMageWeapon::BeginPlay()
+{
+}
+
+void AMageWeapon::PlayFireEffects(FVector TracerEndPoint)
+{
+	if (MuzzleEffect) {
+		UGameplayStatics::SpawnEmitterAttached(MuzzleEffect, MeshComp, MuzzleSocketName);
+	}
+
+	if (TracerEffect) {
+		FVector MuzzleLocation = MeshComp->GetSocketLocation(MuzzleSocketName);
+
+		UParticleSystemComponent* TracerComp = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), TracerEffect, MuzzleLocation);
+		if (TracerComp) {
+			TracerComp->SetVectorParameter(TracerTargetName, TracerEndPoint);
+		}
+	}
+
+	APawn* MyOwner = Cast<APawn>(GetOwner());
+
+	if (MyOwner) {
+		APlayerController* PC = Cast<APlayerController>(MyOwner->GetController());
+		if (PC) {
+			PC->ClientPlayCameraShake(FireCamShake);
+		}
+	}
+
 }
