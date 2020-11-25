@@ -1,6 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "MageCharacter.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
@@ -10,7 +9,7 @@
 // Sets default values
 AMageCharacter::AMageCharacter()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComp"));
@@ -37,20 +36,32 @@ void AMageCharacter::BeginPlay()
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
-	CurrentWeapon = GetWorld()->SpawnActor < AMageWeapon>(StarterWeaponClass, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams);
+	CurrentWeapon = GetWorld()->SpawnActor<AMageWeapon>(StarterWeaponClass, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams);
 
-	if (CurrentWeapon) {
+	if (CurrentWeapon)
+	{
 		CurrentWeapon->SetOwner(this);
 		CurrentWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponAttachSocketName);
-
 	}
 }
-void AMageCharacter::Fire()
+void AMageCharacter::StartFire()
 {
-	if (CurrentWeapon) {
-		CurrentWeapon->Fire();
+	if (CurrentWeapon)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("StartFire"));
+		UE_LOG(LogTemp, Warning, TEXT("StartFire"));
+		CurrentWeapon->StartFire();
 	}
+}
 
+void AMageCharacter::StopFire()
+{
+	if (CurrentWeapon)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("StopFire"));
+		UE_LOG(LogTemp, Warning, TEXT("StopFire"));
+		CurrentWeapon->StopFire();
+	}
 }
 
 // Called every frame
@@ -61,7 +72,6 @@ void AMageCharacter::Tick(float DeltaTime)
 	float TargetFOV = bWantsToZoom ? ZoomedFOV : DefaultFOV;
 	float NewFOV = FMath::FInterpTo(CameraComp->FieldOfView, TargetFOV, DeltaTime, ZoomInterpSpeed);
 	CameraComp->SetFieldOfView(NewFOV);
-
 }
 void AMageCharacter::MoveForward(float Value)
 {
@@ -114,7 +124,6 @@ void AMageCharacter::Action()
 }
 void AMageCharacter::Wheel(float Value)
 {
-
 }
 void AMageCharacter::Menu()
 {
@@ -122,9 +131,8 @@ void AMageCharacter::Menu()
 	UE_LOG(LogTemp, Warning, TEXT("Menu"));
 }
 
-
 // Called to bind functionality to input
-void AMageCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+void AMageCharacter::SetupPlayerInputComponent(UInputComponent *PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
@@ -143,16 +151,15 @@ void AMageCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 	PlayerInputComponent->BindAction("Menu", IE_Pressed, this, &AMageCharacter::Menu);
 	PlayerInputComponent->BindAction("Zoom", IE_Pressed, this, &AMageCharacter::BeginZoom);
 	PlayerInputComponent->BindAction("Zoom", IE_Released, this, &AMageCharacter::EndZoom);
-	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AMageCharacter::Fire);
-
-
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AMageCharacter::StartFire);
+	PlayerInputComponent->BindAction("Fire", IE_Released, this, &AMageCharacter::StopFire);
 }
 
 FVector AMageCharacter::GetPawnViewLocation() const
 {
-	if (CameraComp) {
+	if (CameraComp)
+	{
 		return CameraComp->GetComponentLocation();
 	}
 	return Super::GetPawnViewLocation();
 }
-
