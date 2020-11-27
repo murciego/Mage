@@ -6,6 +6,9 @@
 #include "Components/ActorComponent.h"
 #include "MHealthComponent.generated.h"
 
+// OnHealthChanged event
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_SixParams(FOnHealthChangedSignature, UMHealthComponent *, HealthComp, float, Health, float, HealthDelta, const class UDamageType *, DamageType, class AController *, InstigatedBy, AActor *, DamageCauser);
+
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class MAGE_API UMHealthComponent : public UActorComponent
 {
@@ -26,4 +29,8 @@ protected:
 
 	UFUNCTION()
 	void HandleTakeAnyDamage(AActor *DamagedActor, float Damage, const class UDamageType *DamageType, class AController *InstigatedBy, AActor *DamageCauser);
+
+public:
+	UPROPERTY(BlueprintAssignable, Category = "Events")
+	FOnHealthChangedSignature OnHealthChanged;
 };

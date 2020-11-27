@@ -9,6 +9,7 @@
 class UCameraComponent;
 class USpringArmComponent;
 class AMageWeapon;
+class UMHealthComponent;
 
 UCLASS()
 class MAGE_API AMageCharacter : public ACharacter
@@ -23,12 +24,13 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, Category = "Components")
-	UCameraComponent* CameraComp;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UCameraComponent *CameraComp;
 
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, Category = "Components")
-	USpringArmComponent* SpringArmComp;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	USpringArmComponent *SpringArmComp;
 
+	UMHealthComponent *HealthComp;
 	UPROPERTY(EditDefaultsOnly, Category = "Player")
 	float ZoomedFOV;
 	UPROPERTY(EditDefaultsOnly, Category = "Player", meta = (ClampMin = 0.1, ClampMax = 100))
@@ -48,23 +50,35 @@ protected:
 	void Wheel(float Value);
 	void Menu();
 
-	AMageWeapon* CurrentWeapon;
-	
-	UPROPERTY(EditDefaultsOnly, Category="Player")
+	AMageWeapon *CurrentWeapon;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Player")
 	TSubclassOf<AMageWeapon> StarterWeaponClass;
-	UPROPERTY(VisibleDefaultsOnly, Category="Player")
+	UPROPERTY(VisibleDefaultsOnly, Category = "Player")
 	FName WeaponAttachSocketName;
 
 	void StartFire();
 	void StopFire();
 
-public:	
+	UFUNCTION()
+	void OnHealthChanged(
+		UMHealthComponent *OwningHealthComp,
+		float Health,
+		float HealthDelta,
+		const class UDamageType *DamageType,
+		class AController *InstigatedBy,
+		AActor *DamageCauser);
+		
+	UPROPERTY(BlueprintReadOnly, Category = "Player")
+	bool bDied;
+
+public:
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	virtual void
+	Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	virtual void SetupPlayerInputComponent(class UInputComponent *PlayerInputComponent) override;
 
 	virtual FVector GetPawnViewLocation() const override;
-
 };
