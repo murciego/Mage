@@ -10,6 +10,7 @@
 #include "PhysicalMaterials/PhysicalMaterial.h"
 #include "Mage/Mage.h"
 #include "TimerManager.h"
+#include "Net/UnrealNetwork.h"
 
 static int32 DebugWeaponDrawing = 0;
 FAutoConsoleVariableRef CVARDebugWeaponDrawing(
@@ -26,6 +27,8 @@ AMageWeapon::AMageWeapon()
 	TracerTargetName = "BeamEnd";
 	BaseDamage = 20.0f;
 	RateOfFire = 600;
+
+	SetReplicates(true);
 }
 
 void AMageWeapon::BeginPlay()
@@ -56,9 +59,26 @@ void AMageWeapon::StopFire()
 	GetWorldTimerManager().ClearTimer(TimerHandle_TimeBetweenShots);
 }
 
+void AMageWeapon::ServerFire_Implementation()
+{
+	Fire();
+}
+bool AMageWeapon::ServerFire_Validate()
+{
+	return true;
+}
+void AMageWeapon::OnRep_HitScanTrace()
+{
+	// Play cosmetic FX
+	PlayFireEffects(HitScanTrace.TraceTo);
+}
 void AMageWeapon::Fire()
 {
 
+	if (GetLocalRole() < ROLE_Authority)
+	{
+		ServerFire();
+	}
 	AActor *MyOwner = GetOwner();
 	if (MyOwner)
 	{
@@ -142,6 +162,10 @@ void AMageWeapon::Fire()
 			DrawDebugLine(GetWorld(), EyeLocation, TraceEnd, FColor::White, false, 10.0f, 0, 2.0f);
 		}
 		PlayFireEffects(TracerEndPoint);
+		if (GetLocalRole() == ROLE_Authority)
+		{
+			HitScanTrace.TraceTo = TracerEndPoint;
+		}
 		LastFireTime = GetWorld()->TimeSeconds;
 	}
 }
@@ -174,4 +198,11 @@ void AMageWeapon::PlayFireEffects(FVector TracerEndPoint)
 			PC->ClientPlayCameraShake(FireCamShake);
 		}
 	}
+}
+
+void AMageWeapon::GetLifetimeReplicatedProps(TArray<FLifetimeProperty> &OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME_CONDITION(AMageWeapon, HitScanTrace, COND_SkipOwner);
 }

@@ -50,6 +50,7 @@ protected:
 	void Wheel(float Value);
 	void Menu();
 
+	UPROPERTY(Replicated)
 	AMageWeapon *CurrentWeapon;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Player")
@@ -68,7 +69,7 @@ protected:
 		const class UDamageType *DamageType,
 		class AController *InstigatedBy,
 		AActor *DamageCauser);
-		
+
 	UPROPERTY(BlueprintReadOnly, Category = "Player")
 	bool bDied;
 

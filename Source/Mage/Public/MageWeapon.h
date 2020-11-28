@@ -10,8 +10,18 @@ class USkeletalMeshComponent;
 class UDamageType;
 class UParticleSystem;
 
-UCLASS()
-class MAGE_API AMageWeapon : public AActor
+// Info of a single hitscan weapon linetrace
+USTRUCT()
+struct FHitScanTracec
+{
+	GENERATED_BODY();
+
+public:
+	UPROPERTY()
+	FVector_NetQuantize TraceFrom;
+	UPROPERTY()
+	FVector_NewQuantize TraceTo;
+} UCLASS() class MAGE_API AMageWeapon : public AActor
 {
 	GENERATED_BODY()
 
@@ -56,12 +66,21 @@ protected:
 	float BaseDamage;
 
 	virtual void Fire();
+	UFUNCTION(Server, Reliable, WithValidation)
+	void ServerFire();
+
 	FTimerHandle TimerHandle_TimeBetweenShots;
 	float LastFireTime;
 	/* RPM- Bullets per minute fired*/
 	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
 	float RateOfFire;
 	float TimeBetweenShots;
+
+	UPROPERTY(ReplicatedUsing = OnRep_HitScanTrace)
+	FHitScanTrace HitScanTrace;
+
+	UFUNCTION()
+	void OnRep_HitScanTrace;
 
 public:
 	// Called every frame
