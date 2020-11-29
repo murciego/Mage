@@ -12,16 +12,18 @@ class UParticleSystem;
 
 // Info of a single hitscan weapon linetrace
 USTRUCT()
-struct FHitScanTracec
+struct FHitScanTrace
 {
-	GENERATED_BODY();
-
+	GENERATED_BODY()
 public:
 	UPROPERTY()
-	FVector_NetQuantize TraceFrom;
+	TEnumAsByte<EPhysicalSurface> SurfaceType;
 	UPROPERTY()
-	FVector_NewQuantize TraceTo;
-} UCLASS() class MAGE_API AMageWeapon : public AActor
+	FVector_NetQuantize TraceTo;
+};
+
+UCLASS()
+class MAGE_API AMageWeapon : public AActor
 {
 	GENERATED_BODY()
 
@@ -59,6 +61,8 @@ protected:
 
 	void PlayFireEffects(FVector TracerEndPoint);
 
+	void PlayImpactEffects(EPhysicalSurface SurfaceType, FVector ImpactPoint);
+
 	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
 	TSubclassOf<UCameraShake> FireCamShake;
 
@@ -80,7 +84,8 @@ protected:
 	FHitScanTrace HitScanTrace;
 
 	UFUNCTION()
-	void OnRep_HitScanTrace;
+	void OnRep_HitScanTrace();
+
 
 public:
 	// Called every frame

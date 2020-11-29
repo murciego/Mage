@@ -32,6 +32,9 @@ AMageCharacter::AMageCharacter()
 	ZoomInterpSpeed = 20;
 	bDied = false;
 	WeaponAttachSocketName = "WeaponSocket";
+
+	NetUpdateFrequency = 66.0f;
+	MinNetUpdateFrequency = 33.0f;
 }
 
 // Called when the game starts or when spawned
@@ -49,12 +52,19 @@ void AMageCharacter::BeginPlay()
 
 		CurrentWeapon = GetWorld()->SpawnActor<AMageWeapon>(StarterWeaponClass, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams);
 
+		UE_LOG(LogTemp, Warning, TEXT("WeaponLog: Locale %f"), GetLocalRole());
 		if (CurrentWeapon)
 		{
+			UE_LOG(LogTemp, Warning, TEXT("WeaponLog: AttachWeapon"));
 			CurrentWeapon->SetOwner(this);
+
 			CurrentWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponAttachSocketName);
 		}
 	}
+}
+void AMageCharacter::SetWeaponOwner_Implementation()
+{
+	CurrentWeapon->SetOwner(this);
 }
 void AMageCharacter::OnHealthChanged(
 	UMHealthComponent *OwningHealthComp,
@@ -81,6 +91,7 @@ void AMageCharacter::OnHealthChanged(
 }
 void AMageCharacter::StartFire()
 {
+	UE_LOG(LogTemp, Warning, TEXT("CharacterFire"));
 	if (CurrentWeapon)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("StartFire"));
@@ -202,6 +213,5 @@ FVector AMageCharacter::GetPawnViewLocation() const
 void AMageCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty> &OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-
 	DOREPLIFETIME(AMageCharacter, CurrentWeapon);
 }

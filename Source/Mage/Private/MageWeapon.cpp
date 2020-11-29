@@ -29,6 +29,8 @@ AMageWeapon::AMageWeapon()
 	RateOfFire = 600;
 
 	SetReplicates(true);
+	NetUpdateFrequency = 66.0f;
+	MinNetUpdateFrequency = 33.0f;
 }
 
 void AMageWeapon::BeginPlay()
@@ -44,6 +46,8 @@ void AMageWeapon::Tick(float DeltaTime)
 
 void AMageWeapon::StartFire()
 {
+
+	UE_LOG(LogTemp, Warning, TEXT("StartFire"));
 	float FirstDelay = FMath::Max(LastFireTime + TimeBetweenShots - GetWorld()->TimeSeconds, 0.0f);
 	GetWorldTimerManager().SetTimer(
 		TimerHandle_TimeBetweenShots,
@@ -56,11 +60,13 @@ void AMageWeapon::StartFire()
 
 void AMageWeapon::StopFire()
 {
+	UE_LOG(LogTemp, Warning, TEXT("StopFire"));
 	GetWorldTimerManager().ClearTimer(TimerHandle_TimeBetweenShots);
 }
 
 void AMageWeapon::ServerFire_Implementation()
 {
+	UE_LOG(LogTemp, Warning, TEXT("ServerFire"));
 	Fire();
 }
 bool AMageWeapon::ServerFire_Validate()
@@ -71,6 +77,7 @@ void AMageWeapon::OnRep_HitScanTrace()
 {
 	// Play cosmetic FX
 	PlayFireEffects(HitScanTrace.TraceTo);
+	PlayImpactEffects(HitScanTrace.SurfaceType, HitScanTrace.TraceTo);
 }
 void AMageWeapon::Fire()
 {
@@ -78,7 +85,9 @@ void AMageWeapon::Fire()
 	if (GetLocalRole() < ROLE_Authority)
 	{
 		ServerFire();
+		UE_LOG(LogTemp, Warning, TEXT("Client Fire"));
 	}
+	UE_LOG(LogTemp, Warning, TEXT("FIre"));
 	AActor *MyOwner = GetOwner();
 	if (MyOwner)
 	{
@@ -100,6 +109,7 @@ void AMageWeapon::Fire()
 		// ParticleTargetParam
 		FVector TracerEndPoint = TraceEnd;
 
+		EPhysicalSurface SurfaceType = SurfaceType_Default;
 		FHitResult Hit;
 		if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, COLLISION_WEAPON, QueryParams))
 		{
@@ -107,25 +117,13 @@ void AMageWeapon::Fire()
 			AActor *HitActor = Hit.GetActor();
 			UPhysicalMaterial *HitPhysMat = Hit.PhysMaterial.Get();
 
-			if (HitPhysMat)
-			{
-				UE_LOG(LogTemp, Warning, TEXT("%s"), *HitPhysMat->GetName());
-			}
-			else
-			{
-				UE_LOG(LogTemp, Warning, TEXT("No physical material detected, default instead"));
-			}
-			EPhysicalSurface SurfaceType = UPhysicalMaterial::DetermineSurfaceType(HitPhysMat);
+			SurfaceType = UPhysicalMaterial::DetermineSurfaceType(HitPhysMat);
 
 			float ActualDamage = BaseDamage;
 			if (SurfaceType == SURFACE_FLESHVULNERABLE)
 			{
 				UE_LOG(LogTemp, Warning, TEXT("HEAD SHOT"));
 				ActualDamage *= 4.0f;
-			}
-			else
-			{
-				UE_LOG(LogTemp, Warning, TEXT("NO HEAD SHOT"));
 			}
 
 			UGameplayStatics::ApplyPointDamage(
@@ -136,25 +134,7 @@ void AMageWeapon::Fire()
 				MyOwner->GetInstigatorController(),
 				this,
 				DamageType);
-
-			UParticleSystem *SelectedEffect = nullptr;
-			switch (SurfaceType)
-			{
-			case SURFACE_FLESHDEFAULT:
-				SelectedEffect = FleshImpactEffect;
-				break;
-			case SURFACE_FLESHVULNERABLE:
-				SelectedEffect = FleshImpactEffect;
-				break;
-			default:
-				SelectedEffect = DefaultImpactEffect;
-				break;
-			}
-			if (SelectedEffect)
-			{
-				UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), SelectedEffect, Hit.ImpactPoint, Hit.ImpactNormal.Rotation());
-			}
-
+			PlayImpactEffects(SurfaceType, Hit.ImpactPoint);
 			TracerEndPoint = Hit.ImpactPoint;
 		}
 		if (DebugWeaponDrawing > 0.0f)
@@ -165,11 +145,34 @@ void AMageWeapon::Fire()
 		if (GetLocalRole() == ROLE_Authority)
 		{
 			HitScanTrace.TraceTo = TracerEndPoint;
+			HitScanTrace.SurfaceType = SurfaceType;
 		}
 		LastFireTime = GetWorld()->TimeSeconds;
 	}
 }
-
+void AMageWeapon::PlayImpactEffects(EPhysicalSurface SurfaceType, FVector ImpactPoint)
+{
+	UParticleSystem *SelectedEffect = nullptr;
+	switch (SurfaceType)
+	{
+	case SURFACE_FLESHDEFAULT:
+		SelectedEffect = FleshImpactEffect;
+		break;
+	case SURFACE_FLESHVULNERABLE:
+		SelectedEffect = FleshImpactEffect;
+		break;
+	default:
+		SelectedEffect = DefaultImpactEffect;
+		break;
+	}
+	if (SelectedEffect)
+	{
+		FVector MuzzleLocation = MeshComp->GetSocketLocation(MuzzleSocketName);
+		FVector ShotDirection = ImpactPoint - MuzzleLocation;
+		ShotDirection.Normalize();
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), SelectedEffect, ImpactPoint, ShotDirection.Rotation());
+	}
+}
 void AMageWeapon::PlayFireEffects(FVector TracerEndPoint)
 {
 	if (MuzzleEffect)

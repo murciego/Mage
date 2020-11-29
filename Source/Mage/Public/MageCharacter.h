@@ -53,6 +53,9 @@ protected:
 	UPROPERTY(Replicated)
 	AMageWeapon *CurrentWeapon;
 
+	UFUNCTION(Client, Reliable)
+	void SetWeaponOwner();
+
 	UPROPERTY(EditDefaultsOnly, Category = "Player")
 	TSubclassOf<AMageWeapon> StarterWeaponClass;
 	UPROPERTY(VisibleDefaultsOnly, Category = "Player")
