@@ -4,6 +4,7 @@
 #include "Components/MHealthComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "PhysicsEngine/RadialForceComponent.h"
+#include "Net/UnrealNetwork.h"
 
 // Sets default values
 AMExplosiveBarrel::AMExplosiveBarrel()
@@ -24,6 +25,8 @@ AMExplosiveBarrel::AMExplosiveBarrel()
 	RadialForceComp->bIgnoreOwningActor = true;
 
 	ExplosionImpulse = 400;
+	SetReplicates(true);
+	SetReplicateMovement(true);
 }
 
 // Called when the game starts or when spawned
@@ -47,6 +50,7 @@ void AMExplosiveBarrel::OnHealthChanged(
 	if (Health <= 0.0f)
 	{
 		bExploded = true;
+		OnRep_Exploded();
 		FVector BoostIntensity = FVector::UpVector * ExplosionImpulse;
 		MeshComp->AddImpulse(BoostIntensity, NAME_None, true);
 		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ExplosionEffect, GetActorLocation());
@@ -54,4 +58,15 @@ void AMExplosiveBarrel::OnHealthChanged(
 
 		RadialForceComp->FireImpulse();
 	}
+}
+void AMExplosiveBarrel::OnRep_Exploded()
+{
+	UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ExplosionEffect, GetActorLocation());
+	MeshComp->SetMaterial(0, ExplodedMaterial);
+}
+
+void AMExplosiveBarrel::GetLifetimeReplicatedProps(TArray<FLifetimeProperty> &OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(AMExplosiveBarrel, bExploded);
 }
