@@ -47,7 +47,7 @@ void AMageWeapon::Tick(float DeltaTime)
 void AMageWeapon::StartFire()
 {
 
-	UE_LOG(LogTemp, Warning, TEXT("StartFire"));
+	// UE_LOG(LogTemp, Warning, TEXT("StartFire"));
 	float FirstDelay = FMath::Max(LastFireTime + TimeBetweenShots - GetWorld()->TimeSeconds, 0.0f);
 	GetWorldTimerManager().SetTimer(
 		TimerHandle_TimeBetweenShots,
@@ -60,13 +60,13 @@ void AMageWeapon::StartFire()
 
 void AMageWeapon::StopFire()
 {
-	UE_LOG(LogTemp, Warning, TEXT("StopFire"));
+	// UE_LOG(LogTemp, Warning, TEXT("StopFire"));
 	GetWorldTimerManager().ClearTimer(TimerHandle_TimeBetweenShots);
 }
 
 void AMageWeapon::ServerFire_Implementation()
 {
-	UE_LOG(LogTemp, Warning, TEXT("ServerFire"));
+	// UE_LOG(LogTemp, Warning, TEXT("ServerFire"));
 	Fire();
 }
 bool AMageWeapon::ServerFire_Validate()
@@ -85,9 +85,7 @@ void AMageWeapon::Fire()
 	if (GetLocalRole() < ROLE_Authority)
 	{
 		ServerFire();
-		UE_LOG(LogTemp, Warning, TEXT("Client Fire"));
 	}
-	UE_LOG(LogTemp, Warning, TEXT("FIre"));
 	AActor *MyOwner = GetOwner();
 	if (MyOwner)
 	{
