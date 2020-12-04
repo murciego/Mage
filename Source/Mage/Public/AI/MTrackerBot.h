@@ -7,6 +7,9 @@
 #include "MTrackerBot.generated.h"
 
 class UMHealthComponent;
+class USphereComponent;
+class USoundCue;
+
 UCLASS()
 class MAGE_API AMTrackerBot : public APawn
 {
@@ -22,6 +25,9 @@ protected:
 
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
 	UStaticMeshComponent *MeshComp;
+
+	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
+	USphereComponent *SphereComp;
 
 	UFUNCTION()
 	void HandleTakeDamage(
@@ -46,7 +52,30 @@ protected:
 	// Material dynamic pulse on damage
 	UMaterialInstanceDynamic *MatInst;
 
-public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	UPROPERTY(EditDefaultsOnly, Category = "TrackerBot")
+	UParticleSystem *ExplosionEffect;
+	void SelfDestruct();
+	bool bExploded;
+	bool bStartedSelfDestruction;
+	UPROPERTY(EditDefaultsOnly, Category = "TrackerBot")
+	float ExplosionRadius;
+	UPROPERTY(EditDefaultsOnly, Category = "TrackerBot")
+	float SelftDamageInterval;
+
+	FTimerHandle TimerHandle_SelfDamage;
+	void DamageSelf();
+
+	UPROPERTY(EditDefaultsOnly, Category = "TrackerBot")
+	float ExplosionDamage;
+
+	UPROPERTY(EditDefaultsOnly, Category = "TrackerBot")
+	USoundCue *SelfDestructSound;
+	UPROPERTY(EditDefaultsOnly, Category = "TrackerBot")
+	USoundCue* ExplodeSound;
+public :
+		// Called every frame
+		virtual void
+		Tick(float DeltaTime) override;
+
+	virtual void NotifyActorBeginOverlap(AActor *OtherActor) override;
 };
