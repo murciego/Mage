@@ -11,7 +11,6 @@
 #include "MageCharacter.h"
 #include "Components/MHealthComponent.h"
 #include "EngineUtils.h"
-#include "MageCharacter.h"
 #include "Components/SphereComponent.h"
 #include "Sound/SoundCue.h"
 
@@ -98,7 +97,7 @@ void AMTrackerBot::Tick(float DeltaTime)
 		{
 			NextPathPoint = GetNextPathPoint();
 			DrawDebugString(GetWorld(), GetActorLocation(), "Target Reached!", nullptr, FColor::White, 2.0f);
-			UE_LOG(LogTemp, Warning, TEXT("Target Reached!"));
+			// UE_LOG(LogTemp, Warning, TEXT("Target Reached!"));
 		}
 		else
 		{
@@ -107,7 +106,8 @@ void AMTrackerBot::Tick(float DeltaTime)
 			ForceDirection *= MovementForce;
 			MeshComp->AddForce(ForceDirection, NAME_None, bUseVelocityChange);
 			DrawDebugDirectionalArrow(GetWorld(), GetActorLocation(), GetActorLocation() + ForceDirection, 32, FColor::Yellow, false, 0.0f, 0, 1.0f);
-			UE_LOG(LogTemp, Warning, TEXT("impulse"));
+			
+			// UE_LOG(LogTemp, Warning, TEXT("impulse"));
 		}
 		DrawDebugSphere(GetWorld(), NextPathPoint, 20, 12, FColor::Yellow, false, 0.0f, 1.0f);
 	}
@@ -133,6 +133,10 @@ FVector AMTrackerBot::GetNextPathPoint()
 	for (TActorIterator<AActor> It(GetWorld()); It; ++It)
 	{
 
+		AMageCharacter *PlayerPawn = Cast<AMageCharacter>(*It);
+		if(!PlayerPawn){
+			continue;
+		}
 		AActor *TestPawn = *It;
 		// APawn *TestPawn = MyActor; //It->Get();
 		if (TestPawn == nullptr /* || UMHealthComponent::IsFriendly(TestPawn, this)*/)

@@ -2,6 +2,8 @@
 
 #include "Components/MHealthComponent.h"
 #include "Net/UnrealNetwork.h"
+#include "MageGameMode.h"
+
 // #include "MHealthComponent.h"
 
 // Sets default values for this component's properties
@@ -9,6 +11,7 @@ UMHealthComponent::UMHealthComponent()
 {
 
 	DefaultHealth = 100;
+	bIsDead = false;
 	SetIsReplicated(true);
 }
 
@@ -34,13 +37,23 @@ void UMHealthComponent::OnRep_Health(float OldHealth)
 }
 void UMHealthComponent::HandleTakeAnyDamage(AActor *DamagedActor, float Damage, const class UDamageType *DamageType, class AController *InstigatedBy, AActor *DamageCauser)
 {
-	if (Damage <= 0.0f)
+	if (Damage <= 0.0f || bIsDead)
 	{
 		return;
 	}
 	Health = FMath::Clamp(Health - Damage, 0.0f, DefaultHealth);
 	UE_LOG(LogTemp, Log, TEXT("Health Changed: %s"), *FString::SanitizeFloat(Health));
 	OnHealthChanged.Broadcast(this, Health, Damage, DamageType, InstigatedBy, DamageCauser);
+
+	if(Health <= 0.0f) {
+
+		bIsDead = true;
+		AMageGameMode* GM = Cast <AMageGameMode>(GetWorld()->GetAuthGameMode());
+
+		if(GM) {
+			GM->OnActorKilled.Broadcast(GetOwner(), DamageCauser, InstigatedBy);
+		}
+	}
 }
 
 void UMHealthComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty> &OutLifetimeProps) const
@@ -58,4 +71,8 @@ void UMHealthComponent::Heal(float HealAmount) {
 	UE_LOG(LogTemp, Log, TEXT("Health Changed: %s (+%s)"), *FString::SanitizeFloat(Health), *FString::SanitizeFloat(HealAmount));
 
 	OnHealthChanged.Broadcast(this, Health, -HealAmount, nullptr, nullptr, nullptr);
+}
+
+float UMHealthComponent::GetHealth() const {
+	return Health;
 }

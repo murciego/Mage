@@ -19,13 +19,17 @@ AMPickupActor::AMPickupActor()
 	DecalComp->SetRelativeRotation(FRotator(90.0f, 0.0f, 0.0f));
 	DecalComp->DecalSize = FVector(64, 75, 75);
 	DecalComp->SetupAttachment(RootComponent);
+	CooldownDuration = 10.0f;
+	SetReplicates(true);
 }
 
 // Called when the game starts or when spawned
 void AMPickupActor::BeginPlay()
 {
 	Super::BeginPlay();
-	Respawn();
+	if(GetLocalRole() == ROLE_Authority) {
+		Respawn();
+	}
 }
 
 void AMPickupActor::Respawn()
@@ -44,11 +48,11 @@ void AMPickupActor::NotifyActorBeginOverlap(AActor *OtherActor) {
 	
 	Super::NotifyActorBeginOverlap(OtherActor);
 
-	if(PowerUpInstance) {
-		PowerUpInstance->ActivatePowerup();
+	if ( GetLocalRole() == ROLE_Authority && PowerUpInstance)
+	{
+		PowerUpInstance->ActivatePowerup(OtherActor);
 		PowerUpInstance = nullptr;
 
 		GetWorldTimerManager().SetTimer(TimeHandle_RespawnTimer, this, &AMPickupActor::Respawn, CooldownDuration);
-
 	}
 }
