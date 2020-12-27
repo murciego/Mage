@@ -11,6 +11,8 @@
 #include "Mage/Mage.h"
 #include "TimerManager.h"
 #include "Net/UnrealNetwork.h"
+#include "Camera/CameraShakeBase.h"
+#include "Chaos/ChaosEngineInterface.h"
 
 static int32 DebugWeaponDrawing = 0;
 FAutoConsoleVariableRef CVARDebugWeaponDrawing(
@@ -26,6 +28,7 @@ AMageWeapon::AMageWeapon()
 	MuzzleSocketName = "MuzzleSocket";
 	TracerTargetName = "BeamEnd";
 	BaseDamage = 20.0f;
+	BulletSpread = 2.0f;
 	RateOfFire = 600;
 
 	SetReplicates(true);
@@ -94,6 +97,9 @@ void AMageWeapon::Fire()
 		MyOwner->GetActorEyesViewPoint(EyeLocation, EyeRotation);
 
 		FVector ShotDirection = EyeRotation.Vector();
+
+		float HalfRad = FMath::DegreesToRadians(BulletSpread);
+		ShotDirection = FMath::VRandCone(ShotDirection, HalfRad, HalfRad);
 		FVector TraceEnd = EyeLocation + (ShotDirection * 10000);
 
 		FCollisionQueryParams QueryParams;
@@ -130,7 +136,7 @@ void AMageWeapon::Fire()
 				ShotDirection,
 				Hit,
 				MyOwner->GetInstigatorController(),
-				this,
+				MyOwner,
 				DamageType);
 			PlayImpactEffects(SurfaceType, Hit.ImpactPoint);
 			TracerEndPoint = Hit.ImpactPoint;
@@ -196,7 +202,7 @@ void AMageWeapon::PlayFireEffects(FVector TracerEndPoint)
 		APlayerController *PC = Cast<APlayerController>(MyOwner->GetController());
 		if (PC)
 		{
-			PC->ClientPlayCameraShake(FireCamShake);
+			PC->ClientStartCameraShake(FireCamShake);
 		}
 	}
 }

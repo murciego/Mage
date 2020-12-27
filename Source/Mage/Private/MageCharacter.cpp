@@ -81,6 +81,7 @@ void AMageCharacter::OnHealthChanged(
 		UE_LOG(LogTemp, Warning, TEXT("DIE EVENT"));
 		// Die
 		bDied = true;
+		StopFire();
 		GetMovementComponent()->StopMovementImmediately();
 		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 

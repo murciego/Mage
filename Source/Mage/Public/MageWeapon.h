@@ -4,11 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Camera/CameraShakeBase.h"
 #include "MageWeapon.generated.h"
 
 class USkeletalMeshComponent;
 class UDamageType;
 class UParticleSystem;
+// enum EPhysicalSurface;
 
 // Info of a single hitscan weapon linetrace
 USTRUCT()
@@ -33,6 +35,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	USkeletalMeshComponent *MeshComp;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
+	TSubclassOf<UCameraShakeBase> FireCamShake;
 
 protected:
 	// Called when the game starts or when spawned
@@ -63,8 +68,6 @@ protected:
 
 	void PlayImpactEffects(EPhysicalSurface SurfaceType, FVector ImpactPoint);
 
-	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
-	TSubclassOf<UCameraShake> FireCamShake;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
 	float BaseDamage;
@@ -78,6 +81,10 @@ protected:
 	/* RPM- Bullets per minute fired*/
 	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
 	float RateOfFire;
+	/* Bullet Spread in degrees */
+	UPROPERTY(EditDefaultsOnly, Category = "Weapon", meta = (ClampMin = 0.0f))
+	float BulletSpread;
+
 	float TimeBetweenShots;
 
 	UPROPERTY(ReplicatedUsing = OnRep_HitScanTrace)

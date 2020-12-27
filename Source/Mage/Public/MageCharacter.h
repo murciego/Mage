@@ -30,6 +30,7 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	USpringArmComponent *SpringArmComp;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UMHealthComponent *HealthComp;
 	UPROPERTY(EditDefaultsOnly, Category = "Player")
 	float ZoomedFOV;
@@ -60,10 +61,6 @@ protected:
 	TSubclassOf<AMageWeapon> StarterWeaponClass;
 	UPROPERTY(VisibleDefaultsOnly, Category = "Player")
 	FName WeaponAttachSocketName;
-
-	void StartFire();
-	void StopFire();
-
 	UFUNCTION()
 	void OnHealthChanged(
 		UMHealthComponent *OwningHealthComp,
@@ -85,4 +82,9 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent *PlayerInputComponent) override;
 
 	virtual FVector GetPawnViewLocation() const override;
+
+	UFUNCTION(BlueprintCallable, Category = "Player")
+	void StartFire();
+	UFUNCTION(BlueprintCallable, Category = "Player")
+	void StopFire();
 };

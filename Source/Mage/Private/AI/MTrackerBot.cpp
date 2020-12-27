@@ -15,6 +15,14 @@
 #include "Sound/SoundCue.h"
 
 #include "GameFramework/PlayerController.h"
+
+static int32 DebugTrackerBotDrawing = 0;
+FAutoConsoleVariableRef CVARDebugTrackerBotDrawing(
+	TEXT("COOP.DebugTrackerBot"),
+	DebugTrackerBotDrawing,
+	TEXT("Draw Debug Lines for trackerbot"),
+	ECVF_Cheat);
+
 // Sets default values
 AMTrackerBot::AMTrackerBot()
 {
@@ -41,8 +49,8 @@ AMTrackerBot::AMTrackerBot()
 
 	bExploded = false;
 
-	ExplosionRadius = 200;
-	ExplosionDamage = 40;
+	ExplosionRadius = 350;
+	ExplosionDamage = 60;
 	SelftDamageInterval = 0.25f;
 }
 
@@ -80,7 +88,7 @@ void AMTrackerBot::HandleTakeDamage(
 		MatInst = MeshComp->CreateAndSetMaterialInstanceDynamicFromMaterial(0, MeshComp->GetMaterial(0));
 	}
 	MatInst->SetScalarParameterValue("LastTimeDamageTaken", GetWorld()->TimeSeconds);
-	UE_LOG(LogTemp, Log, TEXT("Health %s of %s"), *FString::SanitizeFloat(Health), *GetName());
+	
 	if (Health <= 0.0f)
 	{
 		SelfDestruct();
@@ -96,7 +104,10 @@ void AMTrackerBot::Tick(float DeltaTime)
 		if (DistanceToTarget <= RequiredDistanceToTarget)
 		{
 			NextPathPoint = GetNextPathPoint();
-			DrawDebugString(GetWorld(), GetActorLocation(), "Target Reached!", nullptr, FColor::White, 2.0f);
+			if (DebugTrackerBotDrawing)
+			{
+				DrawDebugString(GetWorld(), GetActorLocation(), "Target Reached!", nullptr, FColor::White, 2.0f);
+			}
 			// UE_LOG(LogTemp, Warning, TEXT("Target Reached!"));
 		}
 		else
@@ -109,26 +120,17 @@ void AMTrackerBot::Tick(float DeltaTime)
 			
 			// UE_LOG(LogTemp, Warning, TEXT("impulse"));
 		}
-		DrawDebugSphere(GetWorld(), NextPathPoint, 20, 12, FColor::Yellow, false, 0.0f, 1.0f);
+		if(DebugTrackerBotDrawing) {
+			DrawDebugSphere(GetWorld(), NextPathPoint, 20, 12, FColor::Yellow, false, 0.0f, 1.0f);
+		}
 	}
 }
 
 FVector AMTrackerBot::GetNextPathPoint()
 {
 
-	// APlayerController *PC = GetPlayerController(this, 0);
-
-	// ACharacter *PlayerPawn = UGameplayStatics::GetPlayerCharacter(this, 0);
-	/*
-	UNavigationPath *NavPath = UNavigationSystemV1::FindPathToActorSynchronously(this, GetActorLocation(), PlayerPawn);
-	if (NavPath->PathPoints.Num() > 1)
-	{
-		return NavPath->PathPoints[1];
-	}
-	UE_LOG(LogTemp, Warning, TEXT("No next path point"));
-*/
-
 	AActor *BestTarget = nullptr;
+	float NearestTargetDistance = FLT_MAX;
 
 	for (TActorIterator<AActor> It(GetWorld()); It; ++It)
 	{
@@ -139,18 +141,34 @@ FVector AMTrackerBot::GetNextPathPoint()
 		}
 		AActor *TestPawn = *It;
 		// APawn *TestPawn = MyActor; //It->Get();
-		if (TestPawn == nullptr /* || UMHealthComponent::IsFriendly(TestPawn, this)*/)
+		if (TestPawn == nullptr || UMHealthComponent::IsFriendly(TestPawn, this))
 		{
 			continue;
 		}
 
-		UMHealthComponent *TestPawnHealthComp = Cast<UMHealthComponent>(TestPawn->GetComponentByClass(UMHealthComponent::StaticClass()));
+		UMHealthComponent *TestPawnHealthComp = 
+			Cast<UMHealthComponent>(TestPawn->GetComponentByClass(UMHealthComponent::StaticClass()));
 
-		BestTarget = TestPawn;
+		// BestTarget = TestPawn;
+		if(TestPawnHealthComp && TestPawnHealthComp->GetHealth() > 0.0f) {
+			float Distance = (TestPawn->GetActorLocation() - GetActorLocation()).Size();
+
+			GetWorldTimerManager().ClearTimer(TimerHandle_RefreshPath);
+			GetWorldTimerManager().SetTimer(TimerHandle_RefreshPath, this, &AMTrackerBot::RefreshPath, 5.0f, false);
+
+			if(Distance < NearestTargetDistance) {
+				BestTarget = TestPawn;
+				NearestTargetDistance = Distance;
+			}
+		}
 	}
 	if (BestTarget)
 	{
-		UNavigationPath *NavPath = UNavigationSystemV1::FindPathToActorSynchronously(this, GetActorLocation(), BestTarget);
+		UNavigationPath *NavPath = UNavigationSystemV1::FindPathToActorSynchronously(
+			this, 
+			GetActorLocation(), 
+			BestTarget
+		);
 
 		if (NavPath && NavPath->PathPoints.Num() > 1)
 		{
@@ -174,6 +192,7 @@ void AMTrackerBot::SelfDestruct()
 	UGameplayStatics::PlaySoundAtLocation(this, ExplodeSound, GetActorLocation());
 	
 	MeshComp->SetVisibility(false, true);
+	MeshComp->SetSimulatePhysics(false);
 	MeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
 	if(GetLocalRole() == ROLE_Authority)
@@ -193,7 +212,10 @@ void AMTrackerBot::SelfDestruct()
 			GetInstigatorController(),
 			true);
 
-		DrawDebugSphere(GetWorld(), GetActorLocation(), ExplosionRadius, 12, FColor::Red, false, 2.0f, 0, 1.0f);
+		if (DebugTrackerBotDrawing)
+		{
+			DrawDebugSphere(GetWorld(), GetActorLocation(), ExplosionRadius, 12, FColor::Red, false, 2.0f, 0, 1.0f);
+		}
 		SetLifeSpan(2.0f);
 	}
 }
@@ -205,7 +227,7 @@ void AMTrackerBot::NotifyActorBeginOverlap(AActor *OtherActor)
 	{
 		AMageCharacter *PlayerPawn = Cast<AMageCharacter>(OtherActor);
 
-		if (PlayerPawn)
+		if (PlayerPawn && !UMHealthComponent::IsFriendly(OtherActor, this))
 		{
 
 			if (GetLocalRole() == ROLE_Authority)
@@ -236,14 +258,17 @@ void AMTrackerBot::OnCheckNearbyBots() {
 	TArray<FOverlapResult> Overlaps;
 	GetWorld()->OverlapMultiByObjectType(Overlaps, GetActorLocation(), FQuat::Identity, QueryParams,CollShape);
 
-	DrawDebugSphere(GetWorld(), GetActorLocation(), Radius, 12, FColor::White, false, 1.0f);
-
+	if (DebugTrackerBotDrawing)
+	{
+		DrawDebugSphere(GetWorld(), GetActorLocation(), Radius, 12, FColor::White, false, 1.0f);
+	}
 	int32 NrOfBots = 0;
 
-	for (FOverlapResult Result :Overlaps)
+	for (FOverlapResult Result : Overlaps)
 	{
 		AMTrackerBot *Bot = Cast<AMTrackerBot>(Result.GetActor());
-		if( Bot && Bot != this) {
+		if (Bot && Bot != this)
+		{
 			NrOfBots++;
 		}
 	}
@@ -252,13 +277,21 @@ void AMTrackerBot::OnCheckNearbyBots() {
 
 	PowerLevel = FMath::Clamp(NrOfBots, 0, MaxPowerLevel);
 
-	if(MatInst == nullptr) {
+	if (MatInst == nullptr)
+	{
 		MatInst = MeshComp->CreateAndSetMaterialInstanceDynamicFromMaterial(0, MeshComp->GetMaterial(0));
 	}
-	if(MatInst) {
-		float Alpha = PowerLevel / (float) MaxPowerLevel;
+	if (MatInst)
+	{
+		float Alpha = PowerLevel / (float)MaxPowerLevel;
 		MatInst->SetScalarParameterValue("PowerLevelAlpha", Alpha);
 	}
 
-	DrawDebugString(GetWorld(), FVector(0, 0, 0), FString::FromInt(PowerLevel), this, FColor::White, 1.0f, true);
+	if(DebugTrackerBotDrawing) {
+		DrawDebugString(GetWorld(), FVector(0, 0, 0), FString::FromInt(PowerLevel), this, FColor::White, 1.0f, true);
+	}
+}
+
+void AMTrackerBot::RefreshPath() {
+	NextPathPoint = GetNextPathPoint();
 }

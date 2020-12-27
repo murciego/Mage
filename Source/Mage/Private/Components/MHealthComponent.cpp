@@ -12,7 +12,9 @@ UMHealthComponent::UMHealthComponent()
 
 	DefaultHealth = 100;
 	bIsDead = false;
+	TeamNum = 255;
 	SetIsReplicated(true);
+	SetIsReplicatedByDefault(true);
 }
 
 // Called when the game starts
@@ -41,6 +43,9 @@ void UMHealthComponent::HandleTakeAnyDamage(AActor *DamagedActor, float Damage, 
 	{
 		return;
 	}
+	if((DamageCauser != DamagedActor)&& IsFriendly(DamagedActor, DamageCauser)) {
+		return;
+	}
 	Health = FMath::Clamp(Health - Damage, 0.0f, DefaultHealth);
 	UE_LOG(LogTemp, Log, TEXT("Health Changed: %s"), *FString::SanitizeFloat(Health));
 	OnHealthChanged.Broadcast(this, Health, Damage, DamageType, InstigatedBy, DamageCauser);
@@ -55,12 +60,24 @@ void UMHealthComponent::HandleTakeAnyDamage(AActor *DamagedActor, float Damage, 
 		}
 	}
 }
+bool UMHealthComponent::IsFriendly(AActor* ActorA, AActor* ActorB) {
+	
+	if(ActorA == nullptr || ActorB == nullptr) {
+		// Assume Friendly
+		return true;
+	}
 
-void UMHealthComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty> &OutLifetimeProps) const
-{
-	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-	DOREPLIFETIME(UMHealthComponent, Health);
+	UMHealthComponent* HealthCompA = Cast<UMHealthComponent>(ActorA->GetComponentByClass(UMHealthComponent::StaticClass()));
+	UMHealthComponent* HealthCompB = Cast<UMHealthComponent>(ActorB->GetComponentByClass(UMHealthComponent::StaticClass()));
+
+	if (HealthCompA == nullptr || HealthCompB == nullptr)
+	{
+		// Assume Friendly
+		return true;
+	}
+	return HealthCompA->TeamNum == HealthCompB->TeamNum;
 }
+
 void UMHealthComponent::Heal(float HealAmount) {
 
 	if(HealAmount <= 0.0f || Health <= 0.0f) {
@@ -75,4 +92,10 @@ void UMHealthComponent::Heal(float HealAmount) {
 
 float UMHealthComponent::GetHealth() const {
 	return Health;
+}
+
+void UMHealthComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty> &OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(UMHealthComponent, Health);
 }

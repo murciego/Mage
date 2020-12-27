@@ -23,6 +23,7 @@ void AMageGameMode::StartPlay()
 {
     Super::StartPlay();
     PrepareForNextWave();
+    RestartDeadPlayers();
 }
 
 void AMageGameMode::Tick(float DeltaSeconds) {
@@ -133,6 +134,17 @@ void AMageGameMode::SetWaveState(EWaveState NewState) {
         GS->SetWaveState(NewState);
     }
     
+}
+
+void AMageGameMode::RestartDeadPlayers()
+{
+    
+    for(FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator();It;++It) {
+        APlayerController *PC = It->Get();
+        if(PC && PC->GetPawn() == nullptr) {
+            RestartPlayer(PC);
+        }
+    }
 }
 
 void AMageGameMode::GameOver()

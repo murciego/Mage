@@ -13,7 +13,8 @@ public class Mage : ModuleRules
             "CoreUObject",
             "Engine",
             "InputCore",
-            "NavigationSystem"
+            "NavigationSystem",
+            "PhysicsCore"
         });
 
         PrivateDependencyModuleNames.AddRange(new string[] {

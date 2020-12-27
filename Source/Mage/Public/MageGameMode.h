@@ -42,6 +42,7 @@ protected:
 	void CheckAnyPlayerAlive();
 	void GameOver();
 	void SetWaveState(EWaveState NewState);
+	void RestartDeadPlayers();
 
 public:
 	AMageGameMode();
