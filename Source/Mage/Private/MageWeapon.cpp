@@ -130,6 +130,7 @@ void AMageWeapon::Fire()
 				ActualDamage *= 4.0f;
 			}
 
+
 			UGameplayStatics::ApplyPointDamage(
 				HitActor,
 				ActualDamage,
