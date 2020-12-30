@@ -9,6 +9,7 @@ public class MageTarget : TargetRules
 	{
 		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
+		bUsesSteam = true;
 		ExtraModuleNames.AddRange( new string[] { "Mage" } );
 	}
 }

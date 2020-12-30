@@ -13,8 +13,8 @@ UMHealthComponent::UMHealthComponent()
 	DefaultHealth = 100;
 	bIsDead = false;
 	TeamNum = 255;
-	SetIsReplicated(true);
 	SetIsReplicatedByDefault(true);
+	SetIsReplicated(true);
 }
 
 // Called when the game starts

@@ -14,9 +14,13 @@ public class Mage : ModuleRules
             "Engine",
             "InputCore",
             "NavigationSystem",
-            "PhysicsCore"
+            "PhysicsCore",
+            "OnlineSubsystem",
+            "OnlineSubsystemUtils",
+            "Steamworks",
+            "Networking"
         });
-
+        DynamicallyLoadedModuleNames.Add("OnlineSubsystemSteam");
         PrivateDependencyModuleNames.AddRange(new string[] {
 
         });
@@ -25,7 +29,7 @@ public class Mage : ModuleRules
         // PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
 
         // Uncomment if you are using online features
-        // PrivateDependencyModuleNames.Add("OnlineSubsystem");
+        PrivateDependencyModuleNames.Add("OnlineSubsystem");
 
         // To include OnlineSubsystemSteam, add it to the plugins section in your uproject file with the Enabled attribute set to true
     }
