@@ -49,7 +49,6 @@ protected:
 	void EndZoom();
 	void Action();
 	void Wheel(float Value);
-	void Menu();
 
 	UPROPERTY(Replicated)
 	AMageWeapon *CurrentWeapon;
@@ -87,4 +86,8 @@ public:
 	void StartFire();
 	UFUNCTION(BlueprintCallable, Category = "Player")
 	void StopFire();
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+		void Menu();
+
 };

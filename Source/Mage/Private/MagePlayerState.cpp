@@ -5,5 +5,5 @@
 
 
 void AMagePlayerState::AddScore(float ScoreDelta) {
-    Score += ScoreDelta;
+    AMagePlayerState::SetScore(AMagePlayerState::GetScore() + ScoreDelta);
 }

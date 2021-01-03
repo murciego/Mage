@@ -18,10 +18,13 @@ public class Mage : ModuleRules
             "OnlineSubsystem",
             "OnlineSubsystemUtils",
             "Steamworks",
-            "Networking"
+            "Networking",
+            "UMG"
         });
         DynamicallyLoadedModuleNames.Add("OnlineSubsystemSteam");
         PrivateDependencyModuleNames.AddRange(new string[] {
+            "Slate",
+            "SlateCore"
 
         });
 

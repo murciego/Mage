@@ -172,7 +172,8 @@ void AMageCharacter::Action()
 void AMageCharacter::Wheel(float Value)
 {
 }
-void AMageCharacter::Menu()
+
+void AMageCharacter::Menu_Implementation()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Menu"));
 	UE_LOG(LogTemp, Warning, TEXT("Menu"));
