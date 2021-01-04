@@ -1,0 +1,124 @@
+\hypertarget{class_a_m_explosive_barrel}{}\doxysection{Referencia de la Clase AMExplosive\+Barrel}
+\label{class_a_m_explosive_barrel}\index{AMExplosiveBarrel@{AMExplosiveBarrel}}
+
+
+{\ttfamily \#include $<$MExplosive\+Barrel.\+h$>$}
+
+Diagrama de herencias de AMExplosive\+Barrel\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_m_explosive_barrel}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_m_explosive_barrel_aba53bdc11cb5fabafbc265c2ea4764c0}{AMExplosive\+Barrel}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_a_m_explosive_barrel_a8b33f4286bff85328615f2afe3d5068d}{Begin\+Play}} () override
+\item 
+void \mbox{\hyperlink{class_a_m_explosive_barrel_ab5f4ffd3e12e296189481d73716f6b12}{On\+Health\+Changed}} (UMHealth\+Component $\ast$Owning\+Health\+Comp, float Health, float Health\+Delta, const class UDamage\+Type $\ast$Damage\+Type, class AController $\ast$Instigated\+By, AActor $\ast$Damage\+Causer)
+\item 
+void \mbox{\hyperlink{class_a_m_explosive_barrel_a2924d6a41496679a6b754a5a7f2fca15}{On\+Rep\+\_\+\+Exploded}} ()
+\item 
+\mbox{\hyperlink{class_a_m_explosive_barrel_a9becad00e9266a55d6a9f17c49071e41}{UPROPERTY}} (Edit\+Defaults\+Only, Category=\char`\"{}FX\char`\"{}) float Explosion\+Impulse
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+UMHealth\+Component $\ast$ \mbox{\hyperlink{class_a_m_explosive_barrel_ad61dd8588e1537029c46b5ca3c62629a}{Health\+Comp}}
+\item 
+UStatic\+Mesh\+Component $\ast$ \mbox{\hyperlink{class_a_m_explosive_barrel_a1379c6f8a31b8bdf7b515cd32adadf6f}{Mesh\+Comp}}
+\item 
+URadial\+Force\+Component $\ast$ \mbox{\hyperlink{class_a_m_explosive_barrel_a1bf4c89aa5edb7bd5bb897f39938d52c}{Radial\+Force\+Comp}}
+\item 
+bool \mbox{\hyperlink{class_a_m_explosive_barrel_af3905db0005882ea32d37b86bfac51be}{b\+Exploded}}
+\item 
+UParticle\+System $\ast$ \mbox{\hyperlink{class_a_m_explosive_barrel_afa652ade3c89fa5897a534dc9a0be10f}{Explosion\+Effect}}
+\item 
+UMaterial\+Interface $\ast$ \mbox{\hyperlink{class_a_m_explosive_barrel_a8cf6029cb4cfda840b8c61a1aead1171}{Exploded\+Material}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_a_m_explosive_barrel_aba53bdc11cb5fabafbc265c2ea4764c0}\label{class_a_m_explosive_barrel_aba53bdc11cb5fabafbc265c2ea4764c0}} 
+\index{AMExplosiveBarrel@{AMExplosiveBarrel}!AMExplosiveBarrel@{AMExplosiveBarrel}}
+\index{AMExplosiveBarrel@{AMExplosiveBarrel}!AMExplosiveBarrel@{AMExplosiveBarrel}}
+\doxysubsubsection{\texorpdfstring{AMExplosiveBarrel()}{AMExplosiveBarrel()}}
+{\footnotesize\ttfamily AMExplosive\+Barrel\+::\+AMExplosive\+Barrel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_a_m_explosive_barrel_a8b33f4286bff85328615f2afe3d5068d}\label{class_a_m_explosive_barrel_a8b33f4286bff85328615f2afe3d5068d}} 
+\index{AMExplosiveBarrel@{AMExplosiveBarrel}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AMExplosiveBarrel@{AMExplosiveBarrel}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void AMExplosive\+Barrel\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_a_m_explosive_barrel_ab5f4ffd3e12e296189481d73716f6b12}\label{class_a_m_explosive_barrel_ab5f4ffd3e12e296189481d73716f6b12}} 
+\index{AMExplosiveBarrel@{AMExplosiveBarrel}!OnHealthChanged@{OnHealthChanged}}
+\index{OnHealthChanged@{OnHealthChanged}!AMExplosiveBarrel@{AMExplosiveBarrel}}
+\doxysubsubsection{\texorpdfstring{OnHealthChanged()}{OnHealthChanged()}}
+{\footnotesize\ttfamily void AMExplosive\+Barrel\+::\+On\+Health\+Changed (\begin{DoxyParamCaption}\item[{UMHealth\+Component $\ast$}]{Owning\+Health\+Comp,  }\item[{float}]{Health,  }\item[{float}]{Health\+Delta,  }\item[{const class UDamage\+Type $\ast$}]{Damage\+Type,  }\item[{class AController $\ast$}]{Instigated\+By,  }\item[{AActor $\ast$}]{Damage\+Causer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_explosive_barrel_a2924d6a41496679a6b754a5a7f2fca15}\label{class_a_m_explosive_barrel_a2924d6a41496679a6b754a5a7f2fca15}} 
+\index{AMExplosiveBarrel@{AMExplosiveBarrel}!OnRep\_Exploded@{OnRep\_Exploded}}
+\index{OnRep\_Exploded@{OnRep\_Exploded}!AMExplosiveBarrel@{AMExplosiveBarrel}}
+\doxysubsubsection{\texorpdfstring{OnRep\_Exploded()}{OnRep\_Exploded()}}
+{\footnotesize\ttfamily void AMExplosive\+Barrel\+::\+On\+Rep\+\_\+\+Exploded (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_explosive_barrel_a9becad00e9266a55d6a9f17c49071e41}\label{class_a_m_explosive_barrel_a9becad00e9266a55d6a9f17c49071e41}} 
+\index{AMExplosiveBarrel@{AMExplosiveBarrel}!UPROPERTY@{UPROPERTY}}
+\index{UPROPERTY@{UPROPERTY}!AMExplosiveBarrel@{AMExplosiveBarrel}}
+\doxysubsubsection{\texorpdfstring{UPROPERTY()}{UPROPERTY()}}
+{\footnotesize\ttfamily AMExplosive\+Barrel\+::\+UPROPERTY (\begin{DoxyParamCaption}\item[{Edit\+Defaults\+Only}]{,  }\item[{Category}]{ = {\ttfamily \char`\"{}FX\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{class_a_m_explosive_barrel_af3905db0005882ea32d37b86bfac51be}\label{class_a_m_explosive_barrel_af3905db0005882ea32d37b86bfac51be}} 
+\index{AMExplosiveBarrel@{AMExplosiveBarrel}!bExploded@{bExploded}}
+\index{bExploded@{bExploded}!AMExplosiveBarrel@{AMExplosiveBarrel}}
+\doxysubsubsection{\texorpdfstring{bExploded}{bExploded}}
+{\footnotesize\ttfamily bool AMExplosive\+Barrel\+::b\+Exploded\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_explosive_barrel_a8cf6029cb4cfda840b8c61a1aead1171}\label{class_a_m_explosive_barrel_a8cf6029cb4cfda840b8c61a1aead1171}} 
+\index{AMExplosiveBarrel@{AMExplosiveBarrel}!ExplodedMaterial@{ExplodedMaterial}}
+\index{ExplodedMaterial@{ExplodedMaterial}!AMExplosiveBarrel@{AMExplosiveBarrel}}
+\doxysubsubsection{\texorpdfstring{ExplodedMaterial}{ExplodedMaterial}}
+{\footnotesize\ttfamily UMaterial\+Interface$\ast$ AMExplosive\+Barrel\+::\+Exploded\+Material\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_explosive_barrel_afa652ade3c89fa5897a534dc9a0be10f}\label{class_a_m_explosive_barrel_afa652ade3c89fa5897a534dc9a0be10f}} 
+\index{AMExplosiveBarrel@{AMExplosiveBarrel}!ExplosionEffect@{ExplosionEffect}}
+\index{ExplosionEffect@{ExplosionEffect}!AMExplosiveBarrel@{AMExplosiveBarrel}}
+\doxysubsubsection{\texorpdfstring{ExplosionEffect}{ExplosionEffect}}
+{\footnotesize\ttfamily UParticle\+System$\ast$ AMExplosive\+Barrel\+::\+Explosion\+Effect\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_explosive_barrel_ad61dd8588e1537029c46b5ca3c62629a}\label{class_a_m_explosive_barrel_ad61dd8588e1537029c46b5ca3c62629a}} 
+\index{AMExplosiveBarrel@{AMExplosiveBarrel}!HealthComp@{HealthComp}}
+\index{HealthComp@{HealthComp}!AMExplosiveBarrel@{AMExplosiveBarrel}}
+\doxysubsubsection{\texorpdfstring{HealthComp}{HealthComp}}
+{\footnotesize\ttfamily UMHealth\+Component$\ast$ AMExplosive\+Barrel\+::\+Health\+Comp\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_explosive_barrel_a1379c6f8a31b8bdf7b515cd32adadf6f}\label{class_a_m_explosive_barrel_a1379c6f8a31b8bdf7b515cd32adadf6f}} 
+\index{AMExplosiveBarrel@{AMExplosiveBarrel}!MeshComp@{MeshComp}}
+\index{MeshComp@{MeshComp}!AMExplosiveBarrel@{AMExplosiveBarrel}}
+\doxysubsubsection{\texorpdfstring{MeshComp}{MeshComp}}
+{\footnotesize\ttfamily UStatic\+Mesh\+Component$\ast$ AMExplosive\+Barrel\+::\+Mesh\+Comp\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_explosive_barrel_a1bf4c89aa5edb7bd5bb897f39938d52c}\label{class_a_m_explosive_barrel_a1bf4c89aa5edb7bd5bb897f39938d52c}} 
+\index{AMExplosiveBarrel@{AMExplosiveBarrel}!RadialForceComp@{RadialForceComp}}
+\index{RadialForceComp@{RadialForceComp}!AMExplosiveBarrel@{AMExplosiveBarrel}}
+\doxysubsubsection{\texorpdfstring{RadialForceComp}{RadialForceComp}}
+{\footnotesize\ttfamily URadial\+Force\+Component$\ast$ AMExplosive\+Barrel\+::\+Radial\+Force\+Comp\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Public/\mbox{\hyperlink{_m_explosive_barrel_8h}{MExplosive\+Barrel.\+h}}\item 
+Private/\mbox{\hyperlink{_m_explosive_barrel_8cpp}{MExplosive\+Barrel.\+cpp}}\end{DoxyCompactItemize}

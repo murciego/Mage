@@ -1,0 +1,251 @@
+\hypertarget{class_a_mage_weapon}{}\doxysection{Referencia de la Clase AMage\+Weapon}
+\label{class_a_mage_weapon}\index{AMageWeapon@{AMageWeapon}}
+
+
+{\ttfamily \#include $<$Mage\+Weapon.\+h$>$}
+
+Diagrama de herencias de AMage\+Weapon\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_a_mage_weapon}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_mage_weapon_a5e63804dcdde062c1f8a4bbd060ab2b8}{AMage\+Weapon}} ()
+\item 
+virtual void \mbox{\hyperlink{class_a_mage_weapon_a215f60d086bf8951326515bd42da853e}{Tick}} (float Delta\+Time) override
+\item 
+void \mbox{\hyperlink{class_a_mage_weapon_a2d014f083825172c2ff84177a41f75c3}{Start\+Fire}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_weapon_af378048a4d1c02abb02057bd8a42bf50}{Stop\+Fire}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+USkeletal\+Mesh\+Component $\ast$ \mbox{\hyperlink{class_a_mage_weapon_a45c09dd4210caae9cb2f1b9e1b1ecb58}{Mesh\+Comp}}
+\item 
+TSubclass\+Of$<$ UCamera\+Shake\+Base $>$ \mbox{\hyperlink{class_a_mage_weapon_a0fa1faafbc913d35bddb3b48039eadc6}{Fire\+Cam\+Shake}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_a_mage_weapon_ac9cc76acee3c3b3fa5d413adc37bc71f}{Begin\+Play}} () override
+\item 
+void \mbox{\hyperlink{class_a_mage_weapon_af09f26cf32ebed9173065b84b4c91d14}{Play\+Fire\+Effects}} (FVector Tracer\+End\+Point)
+\item 
+void \mbox{\hyperlink{class_a_mage_weapon_a30142bd5ac1ab66876c5aaac1563d823}{Play\+Impact\+Effects}} (EPhysical\+Surface Surface\+Type, FVector Impact\+Point)
+\item 
+virtual void \mbox{\hyperlink{class_a_mage_weapon_ae4aece5fc0aa4d88196e2b9511bfcb27}{Fire}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_weapon_abf38315c1eaf1bfbbb7df89775ee50c9}{Server\+Fire}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_weapon_abad4ac397f09e16dda8b3138106cfb51}{On\+Rep\+\_\+\+Hit\+Scan\+Trace}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+TSubclass\+Of$<$ UDamage\+Type $>$ \mbox{\hyperlink{class_a_mage_weapon_adff75c4b58506e35ce14805fd7099996}{Damage\+Type}}
+\item 
+FName \mbox{\hyperlink{class_a_mage_weapon_a209c91615b8c536e82554bfaf488105a}{Muzzle\+Socket\+Name}}
+\item 
+FName \mbox{\hyperlink{class_a_mage_weapon_ae38a106ef09621c8325e6ae501e7860c}{Tracer\+Target\+Name}}
+\item 
+UParticle\+System $\ast$ \mbox{\hyperlink{class_a_mage_weapon_aca2f16213e8ab144fe2eca2a2db501df}{Muzzle\+Effect}}
+\item 
+UParticle\+System $\ast$ \mbox{\hyperlink{class_a_mage_weapon_a5e2dde472fa510d870960fcac7ffa9ac}{Default\+Impact\+Effect}}
+\item 
+UParticle\+System $\ast$ \mbox{\hyperlink{class_a_mage_weapon_a4b26f9c7eeb425055a162997bd2554e8}{Flesh\+Impact\+Effect}}
+\item 
+UParticle\+System $\ast$ \mbox{\hyperlink{class_a_mage_weapon_a308b80c162e02a3bae6ae5aa7a33aada}{Tracer\+Effect}}
+\item 
+float \mbox{\hyperlink{class_a_mage_weapon_a5c6308249e345b6e6682fba935833e82}{Base\+Damage}}
+\item 
+FTimer\+Handle \mbox{\hyperlink{class_a_mage_weapon_a17225cf0d32ccf4ad78e48580883471d}{Timer\+Handle\+\_\+\+Time\+Between\+Shots}}
+\item 
+float \mbox{\hyperlink{class_a_mage_weapon_ae8a354a49e2d6ac43985c5781f6541a6}{Last\+Fire\+Time}}
+\item 
+float \mbox{\hyperlink{class_a_mage_weapon_a918dfdfacd5a1061938fcdea44fdb717}{Rate\+Of\+Fire}}
+\item 
+float \mbox{\hyperlink{class_a_mage_weapon_a5ac7bbdbf49b5dc31c94ccb5a68ff755}{Bullet\+Spread}}
+\item 
+float \mbox{\hyperlink{class_a_mage_weapon_a7af1d2a0f8f17e392ad166b7be6fb883}{Time\+Between\+Shots}}
+\item 
+\mbox{\hyperlink{struct_f_hit_scan_trace}{FHit\+Scan\+Trace}} \mbox{\hyperlink{class_a_mage_weapon_add697ecb06d4dd2822d10c280759c2ac}{Hit\+Scan\+Trace}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_a_mage_weapon_a5e63804dcdde062c1f8a4bbd060ab2b8}\label{class_a_mage_weapon_a5e63804dcdde062c1f8a4bbd060ab2b8}} 
+\index{AMageWeapon@{AMageWeapon}!AMageWeapon@{AMageWeapon}}
+\index{AMageWeapon@{AMageWeapon}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{AMageWeapon()}{AMageWeapon()}}
+{\footnotesize\ttfamily AMage\+Weapon\+::\+AMage\+Weapon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_a_mage_weapon_ac9cc76acee3c3b3fa5d413adc37bc71f}\label{class_a_mage_weapon_ac9cc76acee3c3b3fa5d413adc37bc71f}} 
+\index{AMageWeapon@{AMageWeapon}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void AMage\+Weapon\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_ae4aece5fc0aa4d88196e2b9511bfcb27}\label{class_a_mage_weapon_ae4aece5fc0aa4d88196e2b9511bfcb27}} 
+\index{AMageWeapon@{AMageWeapon}!Fire@{Fire}}
+\index{Fire@{Fire}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{Fire()}{Fire()}}
+{\footnotesize\ttfamily void AMage\+Weapon\+::\+Fire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplementado en \mbox{\hyperlink{class_a_mage_projectile_weapon_ac8ad11255cee452e16ea8c8b9cbdf6aa}{AMage\+Projectile\+Weapon}}.
+
+\mbox{\Hypertarget{class_a_mage_weapon_abad4ac397f09e16dda8b3138106cfb51}\label{class_a_mage_weapon_abad4ac397f09e16dda8b3138106cfb51}} 
+\index{AMageWeapon@{AMageWeapon}!OnRep\_HitScanTrace@{OnRep\_HitScanTrace}}
+\index{OnRep\_HitScanTrace@{OnRep\_HitScanTrace}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{OnRep\_HitScanTrace()}{OnRep\_HitScanTrace()}}
+{\footnotesize\ttfamily void AMage\+Weapon\+::\+On\+Rep\+\_\+\+Hit\+Scan\+Trace (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_af09f26cf32ebed9173065b84b4c91d14}\label{class_a_mage_weapon_af09f26cf32ebed9173065b84b4c91d14}} 
+\index{AMageWeapon@{AMageWeapon}!PlayFireEffects@{PlayFireEffects}}
+\index{PlayFireEffects@{PlayFireEffects}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{PlayFireEffects()}{PlayFireEffects()}}
+{\footnotesize\ttfamily void AMage\+Weapon\+::\+Play\+Fire\+Effects (\begin{DoxyParamCaption}\item[{FVector}]{Tracer\+End\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_a30142bd5ac1ab66876c5aaac1563d823}\label{class_a_mage_weapon_a30142bd5ac1ab66876c5aaac1563d823}} 
+\index{AMageWeapon@{AMageWeapon}!PlayImpactEffects@{PlayImpactEffects}}
+\index{PlayImpactEffects@{PlayImpactEffects}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{PlayImpactEffects()}{PlayImpactEffects()}}
+{\footnotesize\ttfamily void AMage\+Weapon\+::\+Play\+Impact\+Effects (\begin{DoxyParamCaption}\item[{EPhysical\+Surface}]{Surface\+Type,  }\item[{FVector}]{Impact\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_abf38315c1eaf1bfbbb7df89775ee50c9}\label{class_a_mage_weapon_abf38315c1eaf1bfbbb7df89775ee50c9}} 
+\index{AMageWeapon@{AMageWeapon}!ServerFire@{ServerFire}}
+\index{ServerFire@{ServerFire}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{ServerFire()}{ServerFire()}}
+{\footnotesize\ttfamily void AMage\+Weapon\+::\+Server\+Fire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_a2d014f083825172c2ff84177a41f75c3}\label{class_a_mage_weapon_a2d014f083825172c2ff84177a41f75c3}} 
+\index{AMageWeapon@{AMageWeapon}!StartFire@{StartFire}}
+\index{StartFire@{StartFire}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{StartFire()}{StartFire()}}
+{\footnotesize\ttfamily void AMage\+Weapon\+::\+Start\+Fire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_mage_weapon_af378048a4d1c02abb02057bd8a42bf50}\label{class_a_mage_weapon_af378048a4d1c02abb02057bd8a42bf50}} 
+\index{AMageWeapon@{AMageWeapon}!StopFire@{StopFire}}
+\index{StopFire@{StopFire}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{StopFire()}{StopFire()}}
+{\footnotesize\ttfamily void AMage\+Weapon\+::\+Stop\+Fire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_mage_weapon_a215f60d086bf8951326515bd42da853e}\label{class_a_mage_weapon_a215f60d086bf8951326515bd42da853e}} 
+\index{AMageWeapon@{AMageWeapon}!Tick@{Tick}}
+\index{Tick@{Tick}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void AMage\+Weapon\+::\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{class_a_mage_weapon_a5c6308249e345b6e6682fba935833e82}\label{class_a_mage_weapon_a5c6308249e345b6e6682fba935833e82}} 
+\index{AMageWeapon@{AMageWeapon}!BaseDamage@{BaseDamage}}
+\index{BaseDamage@{BaseDamage}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{BaseDamage}{BaseDamage}}
+{\footnotesize\ttfamily float AMage\+Weapon\+::\+Base\+Damage\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_a5ac7bbdbf49b5dc31c94ccb5a68ff755}\label{class_a_mage_weapon_a5ac7bbdbf49b5dc31c94ccb5a68ff755}} 
+\index{AMageWeapon@{AMageWeapon}!BulletSpread@{BulletSpread}}
+\index{BulletSpread@{BulletSpread}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{BulletSpread}{BulletSpread}}
+{\footnotesize\ttfamily float AMage\+Weapon\+::\+Bullet\+Spread\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_adff75c4b58506e35ce14805fd7099996}\label{class_a_mage_weapon_adff75c4b58506e35ce14805fd7099996}} 
+\index{AMageWeapon@{AMageWeapon}!DamageType@{DamageType}}
+\index{DamageType@{DamageType}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{DamageType}{DamageType}}
+{\footnotesize\ttfamily TSubclass\+Of$<$UDamage\+Type$>$ AMage\+Weapon\+::\+Damage\+Type\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_a5e2dde472fa510d870960fcac7ffa9ac}\label{class_a_mage_weapon_a5e2dde472fa510d870960fcac7ffa9ac}} 
+\index{AMageWeapon@{AMageWeapon}!DefaultImpactEffect@{DefaultImpactEffect}}
+\index{DefaultImpactEffect@{DefaultImpactEffect}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{DefaultImpactEffect}{DefaultImpactEffect}}
+{\footnotesize\ttfamily UParticle\+System$\ast$ AMage\+Weapon\+::\+Default\+Impact\+Effect\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_a0fa1faafbc913d35bddb3b48039eadc6}\label{class_a_mage_weapon_a0fa1faafbc913d35bddb3b48039eadc6}} 
+\index{AMageWeapon@{AMageWeapon}!FireCamShake@{FireCamShake}}
+\index{FireCamShake@{FireCamShake}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{FireCamShake}{FireCamShake}}
+{\footnotesize\ttfamily TSubclass\+Of$<$UCamera\+Shake\+Base$>$ AMage\+Weapon\+::\+Fire\+Cam\+Shake}
+
+\mbox{\Hypertarget{class_a_mage_weapon_a4b26f9c7eeb425055a162997bd2554e8}\label{class_a_mage_weapon_a4b26f9c7eeb425055a162997bd2554e8}} 
+\index{AMageWeapon@{AMageWeapon}!FleshImpactEffect@{FleshImpactEffect}}
+\index{FleshImpactEffect@{FleshImpactEffect}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{FleshImpactEffect}{FleshImpactEffect}}
+{\footnotesize\ttfamily UParticle\+System$\ast$ AMage\+Weapon\+::\+Flesh\+Impact\+Effect\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_add697ecb06d4dd2822d10c280759c2ac}\label{class_a_mage_weapon_add697ecb06d4dd2822d10c280759c2ac}} 
+\index{AMageWeapon@{AMageWeapon}!HitScanTrace@{HitScanTrace}}
+\index{HitScanTrace@{HitScanTrace}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{HitScanTrace}{HitScanTrace}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_f_hit_scan_trace}{FHit\+Scan\+Trace}} AMage\+Weapon\+::\+Hit\+Scan\+Trace\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_ae8a354a49e2d6ac43985c5781f6541a6}\label{class_a_mage_weapon_ae8a354a49e2d6ac43985c5781f6541a6}} 
+\index{AMageWeapon@{AMageWeapon}!LastFireTime@{LastFireTime}}
+\index{LastFireTime@{LastFireTime}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{LastFireTime}{LastFireTime}}
+{\footnotesize\ttfamily float AMage\+Weapon\+::\+Last\+Fire\+Time\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_a45c09dd4210caae9cb2f1b9e1b1ecb58}\label{class_a_mage_weapon_a45c09dd4210caae9cb2f1b9e1b1ecb58}} 
+\index{AMageWeapon@{AMageWeapon}!MeshComp@{MeshComp}}
+\index{MeshComp@{MeshComp}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{MeshComp}{MeshComp}}
+{\footnotesize\ttfamily USkeletal\+Mesh\+Component$\ast$ AMage\+Weapon\+::\+Mesh\+Comp}
+
+\mbox{\Hypertarget{class_a_mage_weapon_aca2f16213e8ab144fe2eca2a2db501df}\label{class_a_mage_weapon_aca2f16213e8ab144fe2eca2a2db501df}} 
+\index{AMageWeapon@{AMageWeapon}!MuzzleEffect@{MuzzleEffect}}
+\index{MuzzleEffect@{MuzzleEffect}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{MuzzleEffect}{MuzzleEffect}}
+{\footnotesize\ttfamily UParticle\+System$\ast$ AMage\+Weapon\+::\+Muzzle\+Effect\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_a209c91615b8c536e82554bfaf488105a}\label{class_a_mage_weapon_a209c91615b8c536e82554bfaf488105a}} 
+\index{AMageWeapon@{AMageWeapon}!MuzzleSocketName@{MuzzleSocketName}}
+\index{MuzzleSocketName@{MuzzleSocketName}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{MuzzleSocketName}{MuzzleSocketName}}
+{\footnotesize\ttfamily FName AMage\+Weapon\+::\+Muzzle\+Socket\+Name\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_a918dfdfacd5a1061938fcdea44fdb717}\label{class_a_mage_weapon_a918dfdfacd5a1061938fcdea44fdb717}} 
+\index{AMageWeapon@{AMageWeapon}!RateOfFire@{RateOfFire}}
+\index{RateOfFire@{RateOfFire}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{RateOfFire}{RateOfFire}}
+{\footnotesize\ttfamily float AMage\+Weapon\+::\+Rate\+Of\+Fire\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_a7af1d2a0f8f17e392ad166b7be6fb883}\label{class_a_mage_weapon_a7af1d2a0f8f17e392ad166b7be6fb883}} 
+\index{AMageWeapon@{AMageWeapon}!TimeBetweenShots@{TimeBetweenShots}}
+\index{TimeBetweenShots@{TimeBetweenShots}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{TimeBetweenShots}{TimeBetweenShots}}
+{\footnotesize\ttfamily float AMage\+Weapon\+::\+Time\+Between\+Shots\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_a17225cf0d32ccf4ad78e48580883471d}\label{class_a_mage_weapon_a17225cf0d32ccf4ad78e48580883471d}} 
+\index{AMageWeapon@{AMageWeapon}!TimerHandle\_TimeBetweenShots@{TimerHandle\_TimeBetweenShots}}
+\index{TimerHandle\_TimeBetweenShots@{TimerHandle\_TimeBetweenShots}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{TimerHandle\_TimeBetweenShots}{TimerHandle\_TimeBetweenShots}}
+{\footnotesize\ttfamily FTimer\+Handle AMage\+Weapon\+::\+Timer\+Handle\+\_\+\+Time\+Between\+Shots\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_a308b80c162e02a3bae6ae5aa7a33aada}\label{class_a_mage_weapon_a308b80c162e02a3bae6ae5aa7a33aada}} 
+\index{AMageWeapon@{AMageWeapon}!TracerEffect@{TracerEffect}}
+\index{TracerEffect@{TracerEffect}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{TracerEffect}{TracerEffect}}
+{\footnotesize\ttfamily UParticle\+System$\ast$ AMage\+Weapon\+::\+Tracer\+Effect\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_weapon_ae38a106ef09621c8325e6ae501e7860c}\label{class_a_mage_weapon_ae38a106ef09621c8325e6ae501e7860c}} 
+\index{AMageWeapon@{AMageWeapon}!TracerTargetName@{TracerTargetName}}
+\index{TracerTargetName@{TracerTargetName}!AMageWeapon@{AMageWeapon}}
+\doxysubsubsection{\texorpdfstring{TracerTargetName}{TracerTargetName}}
+{\footnotesize\ttfamily FName AMage\+Weapon\+::\+Tracer\+Target\+Name\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Public/\mbox{\hyperlink{_mage_weapon_8h}{Mage\+Weapon.\+h}}\item 
+Private/\mbox{\hyperlink{_mage_weapon_8cpp}{Mage\+Weapon.\+cpp}}\end{DoxyCompactItemize}

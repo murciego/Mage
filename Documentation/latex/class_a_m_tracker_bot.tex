@@ -1,0 +1,350 @@
+\hypertarget{class_a_m_tracker_bot}{}\doxysection{Referencia de la Clase AMTracker\+Bot}
+\label{class_a_m_tracker_bot}\index{AMTrackerBot@{AMTrackerBot}}
+
+
+{\ttfamily \#include $<$MTracker\+Bot.\+h$>$}
+
+Diagrama de herencias de AMTracker\+Bot\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_m_tracker_bot}
+\end{center}
+\end{figure}
+\doxysubsection*{MÃ©todos pÃºblicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_m_tracker_bot_aaa9caf98ffda236469d35bad50736b79}{AMTracker\+Bot}} ()
+\item 
+virtual void \mbox{\hyperlink{class_a_m_tracker_bot_aade3223249e2459d7312881305def1d4}{Tick}} (float Delta\+Time) override
+\item 
+virtual void \mbox{\hyperlink{class_a_m_tracker_bot_a4696132daa52bc1abb29262c58362135}{Notify\+Actor\+Begin\+Overlap}} (AActor $\ast$Other\+Actor) override
+\end{DoxyCompactItemize}
+\doxysubsection*{MÃ©todos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_a_m_tracker_bot_a6873c06a06c20b18903ac0a7ef596540}{Begin\+Play}} () override
+\item 
+void \mbox{\hyperlink{class_a_m_tracker_bot_a9e794a89462b35dc7fbadd7630125ebc}{Handle\+Take\+Damage}} (UMHealth\+Component $\ast$Owning\+Health\+Comp, float Health, float Health\+Delta, const class UDamage\+Type $\ast$Damage\+Type, class AController $\ast$Instigated\+By, AActor $\ast$Damage\+Causer)
+\begin{DoxyCompactList}\small\item\em Manejador del daño \end{DoxyCompactList}\item 
+FVector \mbox{\hyperlink{class_a_m_tracker_bot_a3f8cc503de9363c409af0a5e33918e73}{Get\+Next\+Path\+Point}} ()
+\begin{DoxyCompactList}\small\item\em Devuelve el siguiente punto del navpath. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_m_tracker_bot_a1697f0d21cf8a710e87975d949f07155}{Self\+Destruct}} ()
+\item 
+void \mbox{\hyperlink{class_a_m_tracker_bot_afa174745a4f34d444ad9d6c30130c5cb}{Damage\+Self}} ()
+\item 
+void \mbox{\hyperlink{class_a_m_tracker_bot_a7e0cebf723900f848d0754ffae566269}{On\+Check\+Nearby\+Bots}} ()
+\item 
+void \mbox{\hyperlink{class_a_m_tracker_bot_a809b8e901d148cb1f86b7dc648b7cd6b}{Refresh\+Path}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+UStatic\+Mesh\+Component $\ast$ \mbox{\hyperlink{class_a_m_tracker_bot_a869b6cab1cf424e1caab293df48146b2}{Mesh\+Comp}}
+\begin{DoxyCompactList}\small\item\em Visible\+Defaults\+Only, Category = \char`\"{}\+Components\char`\"{}, Referencia al mesh. \end{DoxyCompactList}\item 
+USphere\+Component $\ast$ \mbox{\hyperlink{class_a_m_tracker_bot_a0c60e05a2001cdd4743c825d4f156537}{Sphere\+Comp}}
+\begin{DoxyCompactList}\small\item\em Visible\+Defaults\+Only, Category = \char`\"{}\+Components\char`\"{}, Collision. \end{DoxyCompactList}\item 
+UMHealth\+Component $\ast$ \mbox{\hyperlink{class_a_m_tracker_bot_a6f35882b36e666ed3f538523754c11c0}{Health\+Comp}}
+\begin{DoxyCompactList}\small\item\em Visible\+Defaults\+Only, Category = \char`\"{}\+Components\char`\"{} Componente de la vida. \end{DoxyCompactList}\item 
+FVector \mbox{\hyperlink{class_a_m_tracker_bot_ab54a1b2e120984ff18d9aac260162754}{Next\+Path\+Point}}
+\begin{DoxyCompactList}\small\item\em Siguiente punto del nav\+Path. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_a_m_tracker_bot_a09e50c1bfc7c2eabcb4bf0444a0c5211}{Movement\+Force}}
+\begin{DoxyCompactList}\small\item\em Edit\+Defaults\+Only, Category = \char`\"{}\+Tracker\+Bot\char`\"{} Fuerza de movimiento. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_m_tracker_bot_a5f31757a9771352bb70e299ad56b5924}{b\+Use\+Velocity\+Change}}
+\begin{DoxyCompactList}\small\item\em Edit\+Defaults\+Only, Category = \char`\"{}\+Tracker\+Bot\char`\"{}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_a_m_tracker_bot_a2f193c8d84bf51620e49a549b70a511b}{Required\+Distance\+To\+Target}}
+\begin{DoxyCompactList}\small\item\em Edit\+Defaults\+Only, Category = \char`\"{}\+Tracker\+Bot\char`\"{} Distancia minima para alcanzar el target. \end{DoxyCompactList}\item 
+UMaterial\+Instance\+Dynamic $\ast$ \mbox{\hyperlink{class_a_m_tracker_bot_a35e43c331c8811745cc5238ece74e13a}{Mat\+Inst}}
+\begin{DoxyCompactList}\small\item\em Material Dynamico que parpadea. \end{DoxyCompactList}\item 
+UParticle\+System $\ast$ \mbox{\hyperlink{class_a_m_tracker_bot_a8624e6a1dbb48734c68d5f192ab66dcd}{Explosion\+Effect}}
+\item 
+bool \mbox{\hyperlink{class_a_m_tracker_bot_aa5181eae3f25edc561f1a1a58b487ea1}{b\+Exploded}}
+\item 
+bool \mbox{\hyperlink{class_a_m_tracker_bot_ad626ee4e534f8a0bdb05475e27f4c976}{b\+Started\+Self\+Destruction}}
+\item 
+float \mbox{\hyperlink{class_a_m_tracker_bot_a365ada700a168cc25379a8dcc94f8e72}{Explosion\+Radius}}
+\item 
+float \mbox{\hyperlink{class_a_m_tracker_bot_a5a7de389902f8dd02359b20066b4b299}{Selft\+Damage\+Interval}}
+\item 
+FTimer\+Handle \mbox{\hyperlink{class_a_m_tracker_bot_af42635e1f469268535fda23e2f2f9d7c}{Timer\+Handle\+\_\+\+Self\+Damage}}
+\item 
+float \mbox{\hyperlink{class_a_m_tracker_bot_a31178f16be49d8745146aca92876e2ad}{Explosion\+Damage}}
+\item 
+USound\+Cue $\ast$ \mbox{\hyperlink{class_a_m_tracker_bot_a5ad799de163f59bf1d97d0759d8754aa}{Self\+Destruct\+Sound}}
+\item 
+USound\+Cue $\ast$ \mbox{\hyperlink{class_a_m_tracker_bot_a10f4f27b42c63d02faaf9056713ad4f0}{Explode\+Sound}}
+\item 
+int32 \mbox{\hyperlink{class_a_m_tracker_bot_a7f4fd6c0e5e1661db8e371a798788f2c}{Power\+Level}}
+\item 
+FTimer\+Handle \mbox{\hyperlink{class_a_m_tracker_bot_a4d24a5b5c0106afdfa87afd08bc9b9d2}{Timer\+Handle\+\_\+\+Refresh\+Path}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{DescripciÃ³n detallada}
+IA del trackerbot, un enemigo que va en dirección al jugador mas cercano y explota al entrar en su rango de acción \begin{DoxyAuthor}{Autor}
+Jorge Murciego 
+\end{DoxyAuthor}
+
+
+\doxysubsection{DocumentaciÃ³n del constructor y destructor}
+\mbox{\Hypertarget{class_a_m_tracker_bot_aaa9caf98ffda236469d35bad50736b79}\label{class_a_m_tracker_bot_aaa9caf98ffda236469d35bad50736b79}} 
+\index{AMTrackerBot@{AMTrackerBot}!AMTrackerBot@{AMTrackerBot}}
+\index{AMTrackerBot@{AMTrackerBot}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{AMTrackerBot()}{AMTrackerBot()}}
+{\footnotesize\ttfamily AMTracker\+Bot\+::\+AMTracker\+Bot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{DocumentaciÃ³n de las funciones miembro}
+\mbox{\Hypertarget{class_a_m_tracker_bot_a6873c06a06c20b18903ac0a7ef596540}\label{class_a_m_tracker_bot_a6873c06a06c20b18903ac0a7ef596540}} 
+\index{AMTrackerBot@{AMTrackerBot}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void AMTracker\+Bot\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Se inicia el timer Timer\+Handle\+\_\+\+Check\+Power\+Level en el servidor. \mbox{\Hypertarget{class_a_m_tracker_bot_afa174745a4f34d444ad9d6c30130c5cb}\label{class_a_m_tracker_bot_afa174745a4f34d444ad9d6c30130c5cb}} 
+\index{AMTrackerBot@{AMTrackerBot}!DamageSelf@{DamageSelf}}
+\index{DamageSelf@{DamageSelf}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{DamageSelf()}{DamageSelf()}}
+{\footnotesize\ttfamily void AMTracker\+Bot\+::\+Damage\+Self (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Se hace daño a modo de timer para la autodestrucción. si le queda poca vida, tarda menos en explotar \mbox{\Hypertarget{class_a_m_tracker_bot_a3f8cc503de9363c409af0a5e33918e73}\label{class_a_m_tracker_bot_a3f8cc503de9363c409af0a5e33918e73}} 
+\index{AMTrackerBot@{AMTrackerBot}!GetNextPathPoint@{GetNextPathPoint}}
+\index{GetNextPathPoint@{GetNextPathPoint}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{GetNextPathPoint()}{GetNextPathPoint()}}
+{\footnotesize\ttfamily FVector AMTracker\+Bot\+::\+Get\+Next\+Path\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Devuelve el siguiente punto del navpath. 
+
+Busca el siguiente punto en dirección al jugador y lo devuelve .
+
+\begin{DoxyReturn}{Devuelve}
+nav\+Path point 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_m_tracker_bot_a9e794a89462b35dc7fbadd7630125ebc}\label{class_a_m_tracker_bot_a9e794a89462b35dc7fbadd7630125ebc}} 
+\index{AMTrackerBot@{AMTrackerBot}!HandleTakeDamage@{HandleTakeDamage}}
+\index{HandleTakeDamage@{HandleTakeDamage}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{HandleTakeDamage()}{HandleTakeDamage()}}
+{\footnotesize\ttfamily void AMTracker\+Bot\+::\+Handle\+Take\+Damage (\begin{DoxyParamCaption}\item[{UMHealth\+Component $\ast$}]{Owning\+Health\+Comp,  }\item[{float}]{Health,  }\item[{float}]{Health\+Delta,  }\item[{const class UDamage\+Type $\ast$}]{Damage\+Type,  }\item[{class AController $\ast$}]{Instigated\+By,  }\item[{AActor $\ast$}]{Damage\+Causer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Manejador del daño 
+
+Manejador del daño.
+
+
+\begin{DoxyParams}{ParÃ¡metros}
+{\em Owning\+Health\+Comp} & Componente de vida \\
+\hline
+{\em Health} & Vida actual \\
+\hline
+{\em Health\+Delta} & \\
+\hline
+{\em Damage\+Type} & Tipo de daño \\
+\hline
+{\em Instigated\+By} & Instigador \\
+\hline
+{\em Damage\+Causer} & Quien causa el daño \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_m_tracker_bot_a4696132daa52bc1abb29262c58362135}\label{class_a_m_tracker_bot_a4696132daa52bc1abb29262c58362135}} 
+\index{AMTrackerBot@{AMTrackerBot}!NotifyActorBeginOverlap@{NotifyActorBeginOverlap}}
+\index{NotifyActorBeginOverlap@{NotifyActorBeginOverlap}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{NotifyActorBeginOverlap()}{NotifyActorBeginOverlap()}}
+{\footnotesize\ttfamily void AMTracker\+Bot\+::\+Notify\+Actor\+Begin\+Overlap (\begin{DoxyParamCaption}\item[{AActor $\ast$}]{Other\+Actor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Evento que se lanca cuando un actor entra en rango.
+
+
+\begin{DoxyParams}{ParÃ¡metros}
+{\em Other\+Actor} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_m_tracker_bot_a7e0cebf723900f848d0754ffae566269}\label{class_a_m_tracker_bot_a7e0cebf723900f848d0754ffae566269}} 
+\index{AMTrackerBot@{AMTrackerBot}!OnCheckNearbyBots@{OnCheckNearbyBots}}
+\index{OnCheckNearbyBots@{OnCheckNearbyBots}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{OnCheckNearbyBots()}{OnCheckNearbyBots()}}
+{\footnotesize\ttfamily void AMTracker\+Bot\+::\+On\+Check\+Nearby\+Bots (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Comprueba los trackerbots en area para fortalecerse. \mbox{\Hypertarget{class_a_m_tracker_bot_a809b8e901d148cb1f86b7dc648b7cd6b}\label{class_a_m_tracker_bot_a809b8e901d148cb1f86b7dc648b7cd6b}} 
+\index{AMTrackerBot@{AMTrackerBot}!RefreshPath@{RefreshPath}}
+\index{RefreshPath@{RefreshPath}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{RefreshPath()}{RefreshPath()}}
+{\footnotesize\ttfamily void AMTracker\+Bot\+::\+Refresh\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Refresca el camino en caso de haberse quedado atascado. \mbox{\Hypertarget{class_a_m_tracker_bot_a1697f0d21cf8a710e87975d949f07155}\label{class_a_m_tracker_bot_a1697f0d21cf8a710e87975d949f07155}} 
+\index{AMTrackerBot@{AMTrackerBot}!SelfDestruct@{SelfDestruct}}
+\index{SelfDestruct@{SelfDestruct}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{SelfDestruct()}{SelfDestruct()}}
+{\footnotesize\ttfamily void AMTracker\+Bot\+::\+Self\+Destruct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Pues eso, se autodestruye al tener al jugador cerca. \mbox{\Hypertarget{class_a_m_tracker_bot_aade3223249e2459d7312881305def1d4}\label{class_a_m_tracker_bot_aade3223249e2459d7312881305def1d4}} 
+\index{AMTrackerBot@{AMTrackerBot}!Tick@{Tick}}
+\index{Tick@{Tick}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void AMTracker\+Bot\+::\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+En el tick se van seleccionando los puntos en dirección al jugador mas cercano. Si se alcanza un punto, se busca el siguiente. Así hasta que se alcance al jugador o muera.
+
+
+\begin{DoxyParams}{ParÃ¡metros}
+{\em Delta\+Time} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{DocumentaciÃ³n de los datos miembro}
+\mbox{\Hypertarget{class_a_m_tracker_bot_aa5181eae3f25edc561f1a1a58b487ea1}\label{class_a_m_tracker_bot_aa5181eae3f25edc561f1a1a58b487ea1}} 
+\index{AMTrackerBot@{AMTrackerBot}!bExploded@{bExploded}}
+\index{bExploded@{bExploded}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{bExploded}{bExploded}}
+{\footnotesize\ttfamily bool AMTracker\+Bot\+::b\+Exploded\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_ad626ee4e534f8a0bdb05475e27f4c976}\label{class_a_m_tracker_bot_ad626ee4e534f8a0bdb05475e27f4c976}} 
+\index{AMTrackerBot@{AMTrackerBot}!bStartedSelfDestruction@{bStartedSelfDestruction}}
+\index{bStartedSelfDestruction@{bStartedSelfDestruction}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{bStartedSelfDestruction}{bStartedSelfDestruction}}
+{\footnotesize\ttfamily bool AMTracker\+Bot\+::b\+Started\+Self\+Destruction\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a5f31757a9771352bb70e299ad56b5924}\label{class_a_m_tracker_bot_a5f31757a9771352bb70e299ad56b5924}} 
+\index{AMTrackerBot@{AMTrackerBot}!bUseVelocityChange@{bUseVelocityChange}}
+\index{bUseVelocityChange@{bUseVelocityChange}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{bUseVelocityChange}{bUseVelocityChange}}
+{\footnotesize\ttfamily bool AMTracker\+Bot\+::b\+Use\+Velocity\+Change\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Edit\+Defaults\+Only, Category = \char`\"{}\+Tracker\+Bot\char`\"{}. 
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a10f4f27b42c63d02faaf9056713ad4f0}\label{class_a_m_tracker_bot_a10f4f27b42c63d02faaf9056713ad4f0}} 
+\index{AMTrackerBot@{AMTrackerBot}!ExplodeSound@{ExplodeSound}}
+\index{ExplodeSound@{ExplodeSound}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{ExplodeSound}{ExplodeSound}}
+{\footnotesize\ttfamily USound\+Cue$\ast$ AMTracker\+Bot\+::\+Explode\+Sound\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a31178f16be49d8745146aca92876e2ad}\label{class_a_m_tracker_bot_a31178f16be49d8745146aca92876e2ad}} 
+\index{AMTrackerBot@{AMTrackerBot}!ExplosionDamage@{ExplosionDamage}}
+\index{ExplosionDamage@{ExplosionDamage}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{ExplosionDamage}{ExplosionDamage}}
+{\footnotesize\ttfamily float AMTracker\+Bot\+::\+Explosion\+Damage\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a8624e6a1dbb48734c68d5f192ab66dcd}\label{class_a_m_tracker_bot_a8624e6a1dbb48734c68d5f192ab66dcd}} 
+\index{AMTrackerBot@{AMTrackerBot}!ExplosionEffect@{ExplosionEffect}}
+\index{ExplosionEffect@{ExplosionEffect}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{ExplosionEffect}{ExplosionEffect}}
+{\footnotesize\ttfamily UParticle\+System$\ast$ AMTracker\+Bot\+::\+Explosion\+Effect\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a365ada700a168cc25379a8dcc94f8e72}\label{class_a_m_tracker_bot_a365ada700a168cc25379a8dcc94f8e72}} 
+\index{AMTrackerBot@{AMTrackerBot}!ExplosionRadius@{ExplosionRadius}}
+\index{ExplosionRadius@{ExplosionRadius}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{ExplosionRadius}{ExplosionRadius}}
+{\footnotesize\ttfamily float AMTracker\+Bot\+::\+Explosion\+Radius\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a6f35882b36e666ed3f538523754c11c0}\label{class_a_m_tracker_bot_a6f35882b36e666ed3f538523754c11c0}} 
+\index{AMTrackerBot@{AMTrackerBot}!HealthComp@{HealthComp}}
+\index{HealthComp@{HealthComp}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{HealthComp}{HealthComp}}
+{\footnotesize\ttfamily UMHealth\+Component$\ast$ AMTracker\+Bot\+::\+Health\+Comp\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Visible\+Defaults\+Only, Category = \char`\"{}\+Components\char`\"{} Componente de la vida. 
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a35e43c331c8811745cc5238ece74e13a}\label{class_a_m_tracker_bot_a35e43c331c8811745cc5238ece74e13a}} 
+\index{AMTrackerBot@{AMTrackerBot}!MatInst@{MatInst}}
+\index{MatInst@{MatInst}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{MatInst}{MatInst}}
+{\footnotesize\ttfamily UMaterial\+Instance\+Dynamic$\ast$ AMTracker\+Bot\+::\+Mat\+Inst\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Material Dynamico que parpadea. 
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a869b6cab1cf424e1caab293df48146b2}\label{class_a_m_tracker_bot_a869b6cab1cf424e1caab293df48146b2}} 
+\index{AMTrackerBot@{AMTrackerBot}!MeshComp@{MeshComp}}
+\index{MeshComp@{MeshComp}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{MeshComp}{MeshComp}}
+{\footnotesize\ttfamily UStatic\+Mesh\+Component$\ast$ AMTracker\+Bot\+::\+Mesh\+Comp\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Visible\+Defaults\+Only, Category = \char`\"{}\+Components\char`\"{}, Referencia al mesh. 
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a09e50c1bfc7c2eabcb4bf0444a0c5211}\label{class_a_m_tracker_bot_a09e50c1bfc7c2eabcb4bf0444a0c5211}} 
+\index{AMTrackerBot@{AMTrackerBot}!MovementForce@{MovementForce}}
+\index{MovementForce@{MovementForce}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{MovementForce}{MovementForce}}
+{\footnotesize\ttfamily float AMTracker\+Bot\+::\+Movement\+Force\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Edit\+Defaults\+Only, Category = \char`\"{}\+Tracker\+Bot\char`\"{} Fuerza de movimiento. 
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_ab54a1b2e120984ff18d9aac260162754}\label{class_a_m_tracker_bot_ab54a1b2e120984ff18d9aac260162754}} 
+\index{AMTrackerBot@{AMTrackerBot}!NextPathPoint@{NextPathPoint}}
+\index{NextPathPoint@{NextPathPoint}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{NextPathPoint}{NextPathPoint}}
+{\footnotesize\ttfamily FVector AMTracker\+Bot\+::\+Next\+Path\+Point\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Siguiente punto del nav\+Path. 
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a7f4fd6c0e5e1661db8e371a798788f2c}\label{class_a_m_tracker_bot_a7f4fd6c0e5e1661db8e371a798788f2c}} 
+\index{AMTrackerBot@{AMTrackerBot}!PowerLevel@{PowerLevel}}
+\index{PowerLevel@{PowerLevel}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{PowerLevel}{PowerLevel}}
+{\footnotesize\ttfamily int32 AMTracker\+Bot\+::\+Power\+Level\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a2f193c8d84bf51620e49a549b70a511b}\label{class_a_m_tracker_bot_a2f193c8d84bf51620e49a549b70a511b}} 
+\index{AMTrackerBot@{AMTrackerBot}!RequiredDistanceToTarget@{RequiredDistanceToTarget}}
+\index{RequiredDistanceToTarget@{RequiredDistanceToTarget}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{RequiredDistanceToTarget}{RequiredDistanceToTarget}}
+{\footnotesize\ttfamily float AMTracker\+Bot\+::\+Required\+Distance\+To\+Target\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Edit\+Defaults\+Only, Category = \char`\"{}\+Tracker\+Bot\char`\"{} Distancia minima para alcanzar el target. 
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a5ad799de163f59bf1d97d0759d8754aa}\label{class_a_m_tracker_bot_a5ad799de163f59bf1d97d0759d8754aa}} 
+\index{AMTrackerBot@{AMTrackerBot}!SelfDestructSound@{SelfDestructSound}}
+\index{SelfDestructSound@{SelfDestructSound}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{SelfDestructSound}{SelfDestructSound}}
+{\footnotesize\ttfamily USound\+Cue$\ast$ AMTracker\+Bot\+::\+Self\+Destruct\+Sound\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a5a7de389902f8dd02359b20066b4b299}\label{class_a_m_tracker_bot_a5a7de389902f8dd02359b20066b4b299}} 
+\index{AMTrackerBot@{AMTrackerBot}!SelftDamageInterval@{SelftDamageInterval}}
+\index{SelftDamageInterval@{SelftDamageInterval}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{SelftDamageInterval}{SelftDamageInterval}}
+{\footnotesize\ttfamily float AMTracker\+Bot\+::\+Selft\+Damage\+Interval\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a0c60e05a2001cdd4743c825d4f156537}\label{class_a_m_tracker_bot_a0c60e05a2001cdd4743c825d4f156537}} 
+\index{AMTrackerBot@{AMTrackerBot}!SphereComp@{SphereComp}}
+\index{SphereComp@{SphereComp}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{SphereComp}{SphereComp}}
+{\footnotesize\ttfamily USphere\+Component$\ast$ AMTracker\+Bot\+::\+Sphere\+Comp\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Visible\+Defaults\+Only, Category = \char`\"{}\+Components\char`\"{}, Collision. 
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_a4d24a5b5c0106afdfa87afd08bc9b9d2}\label{class_a_m_tracker_bot_a4d24a5b5c0106afdfa87afd08bc9b9d2}} 
+\index{AMTrackerBot@{AMTrackerBot}!TimerHandle\_RefreshPath@{TimerHandle\_RefreshPath}}
+\index{TimerHandle\_RefreshPath@{TimerHandle\_RefreshPath}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{TimerHandle\_RefreshPath}{TimerHandle\_RefreshPath}}
+{\footnotesize\ttfamily FTimer\+Handle AMTracker\+Bot\+::\+Timer\+Handle\+\_\+\+Refresh\+Path\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_tracker_bot_af42635e1f469268535fda23e2f2f9d7c}\label{class_a_m_tracker_bot_af42635e1f469268535fda23e2f2f9d7c}} 
+\index{AMTrackerBot@{AMTrackerBot}!TimerHandle\_SelfDamage@{TimerHandle\_SelfDamage}}
+\index{TimerHandle\_SelfDamage@{TimerHandle\_SelfDamage}!AMTrackerBot@{AMTrackerBot}}
+\doxysubsubsection{\texorpdfstring{TimerHandle\_SelfDamage}{TimerHandle\_SelfDamage}}
+{\footnotesize\ttfamily FTimer\+Handle AMTracker\+Bot\+::\+Timer\+Handle\+\_\+\+Self\+Damage\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentaciÃ³n para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Public/\+AI/\mbox{\hyperlink{_m_tracker_bot_8h}{MTracker\+Bot.\+h}}\item 
+Private/\+AI/\mbox{\hyperlink{_m_tracker_bot_8cpp}{MTracker\+Bot.\+cpp}}\end{DoxyCompactItemize}

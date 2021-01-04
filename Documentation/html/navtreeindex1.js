@@ -1,0 +1,24 @@
+var NAVTREEINDEX1 =
+{
+"files.html":[1,0],
+"functions.html":[0,3,0],
+"functions_func.html":[0,3,1],
+"functions_vars.html":[0,3,2],
+"globals.html":[1,1,0],
+"globals_defs.html":[1,1,3],
+"globals_enum.html":[1,1,2],
+"globals_func.html":[1,1,1],
+"hierarchy.html":[0,2],
+"index.html":[],
+"pages.html":[],
+"struct_f_hit_scan_trace.html":[0,0,11],
+"struct_f_hit_scan_trace.html#a603adcd1a2ce6f1c504ee112a0978d5a":[0,0,11,1],
+"struct_f_hit_scan_trace.html#adf2be583210a6d43ee5697cff3c46040":[0,0,11,0],
+"struct_f_mage_config.html":[0,0,12],
+"struct_f_mage_config.html#a6b9139d70efe10e2c6aff8e62d52c44f":[0,0,12,1],
+"struct_f_mage_config.html#a863a93f92764d4be2903867c75ad3678":[0,0,12,0],
+"struct_f_mage_config.html#ab1eb9b9f8cf7bd70858fa6203ba51410":[0,0,12,2],
+"widget_config_8cpp.html":[1,0,0,3,1],
+"widget_config_8h.html":[1,0,1,3,1],
+"widget_config_8h_source.html":[1,0,1,3,1]
+};

@@ -1,0 +1,116 @@
+\hypertarget{class_a_m_pickup_actor}{}\doxysection{Referencia de la Clase AMPickup\+Actor}
+\label{class_a_m_pickup_actor}\index{AMPickupActor@{AMPickupActor}}
+
+
+{\ttfamily \#include $<$MPickup\+Actor.\+h$>$}
+
+Diagrama de herencias de AMPickup\+Actor\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_m_pickup_actor}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_m_pickup_actor_a96b7e858a716f18fdbc173fc6c35319d}{AMPickup\+Actor}} ()
+\item 
+virtual void \mbox{\hyperlink{class_a_m_pickup_actor_ad09fb53506f53f3e809534486521d0b7}{Notify\+Actor\+Begin\+Overlap}} (AActor $\ast$Other\+Actor) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_a_m_pickup_actor_a0473fc0816ae95019ecfa406b01db800}{Begin\+Play}} () override
+\item 
+void \mbox{\hyperlink{class_a_m_pickup_actor_a9334eaeabc6cd1d13ec0f362d0a50d36}{Respawn}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+USphere\+Component $\ast$ \mbox{\hyperlink{class_a_m_pickup_actor_aa94d03b531ee87c55d72561c495b6246}{Sphere\+Comp}}
+\item 
+UDecal\+Component $\ast$ \mbox{\hyperlink{class_a_m_pickup_actor_ac9e69fb486c8ebd84330d705f696ff48}{Decal\+Comp}}
+\item 
+TSubclass\+Of$<$ \mbox{\hyperlink{class_a_m_powerup_actor}{AMPowerup\+Actor}} $>$ \mbox{\hyperlink{class_a_m_pickup_actor_a947ed3248e2d6c1f031e245cf6775db9}{Power\+Up\+Class}}
+\item 
+\mbox{\hyperlink{class_a_m_powerup_actor}{AMPowerup\+Actor}} $\ast$ \mbox{\hyperlink{class_a_m_pickup_actor_a318247a8e39a0f2d4f3e6e11eb061f64}{Power\+Up\+Instance}}
+\item 
+float \mbox{\hyperlink{class_a_m_pickup_actor_ac10db90acc58f33dc68c85bd0531db2c}{Cooldown\+Duration}}
+\item 
+FTimer\+Handle \mbox{\hyperlink{class_a_m_pickup_actor_ab05ef8f173ee26a74391ffb733ed4da4}{Time\+Handle\+\_\+\+Respawn\+Timer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_a_m_pickup_actor_a96b7e858a716f18fdbc173fc6c35319d}\label{class_a_m_pickup_actor_a96b7e858a716f18fdbc173fc6c35319d}} 
+\index{AMPickupActor@{AMPickupActor}!AMPickupActor@{AMPickupActor}}
+\index{AMPickupActor@{AMPickupActor}!AMPickupActor@{AMPickupActor}}
+\doxysubsubsection{\texorpdfstring{AMPickupActor()}{AMPickupActor()}}
+{\footnotesize\ttfamily AMPickup\+Actor\+::\+AMPickup\+Actor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_a_m_pickup_actor_a0473fc0816ae95019ecfa406b01db800}\label{class_a_m_pickup_actor_a0473fc0816ae95019ecfa406b01db800}} 
+\index{AMPickupActor@{AMPickupActor}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AMPickupActor@{AMPickupActor}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void AMPickup\+Actor\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_a_m_pickup_actor_ad09fb53506f53f3e809534486521d0b7}\label{class_a_m_pickup_actor_ad09fb53506f53f3e809534486521d0b7}} 
+\index{AMPickupActor@{AMPickupActor}!NotifyActorBeginOverlap@{NotifyActorBeginOverlap}}
+\index{NotifyActorBeginOverlap@{NotifyActorBeginOverlap}!AMPickupActor@{AMPickupActor}}
+\doxysubsubsection{\texorpdfstring{NotifyActorBeginOverlap()}{NotifyActorBeginOverlap()}}
+{\footnotesize\ttfamily void AMPickup\+Actor\+::\+Notify\+Actor\+Begin\+Overlap (\begin{DoxyParamCaption}\item[{AActor $\ast$}]{Other\+Actor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_a_m_pickup_actor_a9334eaeabc6cd1d13ec0f362d0a50d36}\label{class_a_m_pickup_actor_a9334eaeabc6cd1d13ec0f362d0a50d36}} 
+\index{AMPickupActor@{AMPickupActor}!Respawn@{Respawn}}
+\index{Respawn@{Respawn}!AMPickupActor@{AMPickupActor}}
+\doxysubsubsection{\texorpdfstring{Respawn()}{Respawn()}}
+{\footnotesize\ttfamily void AMPickup\+Actor\+::\+Respawn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{class_a_m_pickup_actor_ac10db90acc58f33dc68c85bd0531db2c}\label{class_a_m_pickup_actor_ac10db90acc58f33dc68c85bd0531db2c}} 
+\index{AMPickupActor@{AMPickupActor}!CooldownDuration@{CooldownDuration}}
+\index{CooldownDuration@{CooldownDuration}!AMPickupActor@{AMPickupActor}}
+\doxysubsubsection{\texorpdfstring{CooldownDuration}{CooldownDuration}}
+{\footnotesize\ttfamily float AMPickup\+Actor\+::\+Cooldown\+Duration\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_pickup_actor_ac9e69fb486c8ebd84330d705f696ff48}\label{class_a_m_pickup_actor_ac9e69fb486c8ebd84330d705f696ff48}} 
+\index{AMPickupActor@{AMPickupActor}!DecalComp@{DecalComp}}
+\index{DecalComp@{DecalComp}!AMPickupActor@{AMPickupActor}}
+\doxysubsubsection{\texorpdfstring{DecalComp}{DecalComp}}
+{\footnotesize\ttfamily UDecal\+Component$\ast$ AMPickup\+Actor\+::\+Decal\+Comp\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_pickup_actor_a947ed3248e2d6c1f031e245cf6775db9}\label{class_a_m_pickup_actor_a947ed3248e2d6c1f031e245cf6775db9}} 
+\index{AMPickupActor@{AMPickupActor}!PowerUpClass@{PowerUpClass}}
+\index{PowerUpClass@{PowerUpClass}!AMPickupActor@{AMPickupActor}}
+\doxysubsubsection{\texorpdfstring{PowerUpClass}{PowerUpClass}}
+{\footnotesize\ttfamily TSubclass\+Of$<$\mbox{\hyperlink{class_a_m_powerup_actor}{AMPowerup\+Actor}}$>$ AMPickup\+Actor\+::\+Power\+Up\+Class\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_pickup_actor_a318247a8e39a0f2d4f3e6e11eb061f64}\label{class_a_m_pickup_actor_a318247a8e39a0f2d4f3e6e11eb061f64}} 
+\index{AMPickupActor@{AMPickupActor}!PowerUpInstance@{PowerUpInstance}}
+\index{PowerUpInstance@{PowerUpInstance}!AMPickupActor@{AMPickupActor}}
+\doxysubsubsection{\texorpdfstring{PowerUpInstance}{PowerUpInstance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_m_powerup_actor}{AMPowerup\+Actor}}$\ast$ AMPickup\+Actor\+::\+Power\+Up\+Instance\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_pickup_actor_aa94d03b531ee87c55d72561c495b6246}\label{class_a_m_pickup_actor_aa94d03b531ee87c55d72561c495b6246}} 
+\index{AMPickupActor@{AMPickupActor}!SphereComp@{SphereComp}}
+\index{SphereComp@{SphereComp}!AMPickupActor@{AMPickupActor}}
+\doxysubsubsection{\texorpdfstring{SphereComp}{SphereComp}}
+{\footnotesize\ttfamily USphere\+Component$\ast$ AMPickup\+Actor\+::\+Sphere\+Comp\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_pickup_actor_ab05ef8f173ee26a74391ffb733ed4da4}\label{class_a_m_pickup_actor_ab05ef8f173ee26a74391ffb733ed4da4}} 
+\index{AMPickupActor@{AMPickupActor}!TimeHandle\_RespawnTimer@{TimeHandle\_RespawnTimer}}
+\index{TimeHandle\_RespawnTimer@{TimeHandle\_RespawnTimer}!AMPickupActor@{AMPickupActor}}
+\doxysubsubsection{\texorpdfstring{TimeHandle\_RespawnTimer}{TimeHandle\_RespawnTimer}}
+{\footnotesize\ttfamily FTimer\+Handle AMPickup\+Actor\+::\+Time\+Handle\+\_\+\+Respawn\+Timer\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Public/\mbox{\hyperlink{_m_pickup_actor_8h}{MPickup\+Actor.\+h}}\item 
+Private/\mbox{\hyperlink{_m_pickup_actor_8cpp}{MPickup\+Actor.\+cpp}}\end{DoxyCompactItemize}

@@ -6,6 +6,13 @@
 #include "GameFramework/GameUserSettings.h"
 #include "core/MageGameUserSettings.h"
 
+/// Constructor.
+/**
+ * Inicialización de la clase
+ *
+ * @param theory Even if there is only one possible unified theory. it is just a
+ * @return void
+ */
 
 void UwidgetConfig::init()
 {
@@ -16,6 +23,12 @@ void UwidgetConfig::init()
 	}
 }
 
+/**
+ * Inicialización de la clase
+ *
+ * @param theory Even if there is only one possible unified theory. it is just a
+ * @return void
+ */
 void UwidgetConfig::SaveConfig()
 {
 	

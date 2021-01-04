@@ -10,24 +10,27 @@ class UMHealthComponent;
 class USphereComponent;
 class USoundCue;
 
+/**
+ * IA del trackerbot, un enemigo que va en dirección al jugador mas cercano
+ * y explota al entrar en su rango de acción
+ * @author Jorge Murciego
+ */
 UCLASS()
 class MAGE_API AMTrackerBot : public APawn
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this pawn's properties
 	AMTrackerBot();
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
-	UStaticMeshComponent *MeshComp;
+	UStaticMeshComponent *MeshComp;//!< VisibleDefaultsOnly, Category = "Components", Referencia al mesh
 
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
-	USphereComponent *SphereComp;
+	USphereComponent *SphereComp;//!< VisibleDefaultsOnly, Category = "Components", Collision 
 
 	UFUNCTION()
 	void HandleTakeDamage(
@@ -36,21 +39,21 @@ protected:
 		float HealthDelta,
 		const class UDamageType *DamageType,
 		class AController *InstigatedBy,
-		AActor *DamageCauser);
+		AActor *DamageCauser);//!< Manejador del daño
 
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
-	UMHealthComponent *HealthComp;
-	FVector GetNextPathPoint();
-	FVector NextPathPoint;
+	UMHealthComponent *HealthComp;//!< VisibleDefaultsOnly, Category = "Components" Componente de la vida
+	FVector GetNextPathPoint();//!< Devuelve el siguiente punto del navpath
+	FVector NextPathPoint;//!< Siguiente punto del navPath
 	UPROPERTY(EditDefaultsOnly, Category = "TrackerBot")
-	float MovementForce;
+	float MovementForce; //!< EditDefaultsOnly, Category = "TrackerBot" Fuerza de movimiento
 	UPROPERTY(EditDefaultsOnly, Category = "TrackerBot")
-	bool bUseVelocityChange;
+	bool bUseVelocityChange; //!< EditDefaultsOnly, Category = "TrackerBot" 
 	UPROPERTY(EditDefaultsOnly, Category = "TrackerBot")
-	float RequiredDistanceToTarget;
+	float RequiredDistanceToTarget; //!< EditDefaultsOnly, Category = "TrackerBot" Distancia minima para alcanzar el target
 
 	// Material dynamic pulse on damage
-	UMaterialInstanceDynamic *MatInst;
+	UMaterialInstanceDynamic *MatInst; //!< Material Dynamico que parpadea
 
 	UPROPERTY(EditDefaultsOnly, Category = "TrackerBot")
 	UParticleSystem *ExplosionEffect;
@@ -74,8 +77,7 @@ protected:
 	USoundCue* ExplodeSound;
 public :
 		// Called every frame
-		virtual void
-		Tick(float DeltaTime) override;
+		virtual void Tick(float DeltaTime) override;
 
 		virtual void NotifyActorBeginOverlap(AActor *OtherActor) override;
 

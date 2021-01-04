@@ -1,0 +1,12 @@
+digraph "AMageGameState::SetWaveState"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="AMageGameState::SetWaveState",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="AMageGameState::OnRep\l_WaveState",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_game_state.html#a9d1211707542135b1088d14966d65cdd",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="AMageGameState::WaveState\lChanged",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_game_state.html#a2cf8ab12f833ded5f61a0dd84d57e99b",tooltip=" "];
+}

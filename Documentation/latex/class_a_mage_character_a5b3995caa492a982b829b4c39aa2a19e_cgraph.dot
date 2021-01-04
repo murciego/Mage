@@ -1,0 +1,16 @@
+digraph "AMageCharacter::StartFire"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="AMageCharacter::StartFire",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="AMageWeapon::StartFire",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_weapon.html#a2d014f083825172c2ff84177a41f75c3",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="AMageWeapon::Fire",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_weapon.html#ae4aece5fc0aa4d88196e2b9511bfcb27",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="AMageWeapon::PlayImpactEffects",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_weapon.html#a30142bd5ac1ab66876c5aaac1563d823",tooltip=" "];
+  Node3 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="AMageWeapon::ServerFire",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_weapon.html#abf38315c1eaf1bfbbb7df89775ee50c9",tooltip=" "];
+}

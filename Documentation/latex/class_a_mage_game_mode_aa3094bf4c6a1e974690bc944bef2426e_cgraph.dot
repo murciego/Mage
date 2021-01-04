@@ -1,0 +1,26 @@
+digraph "AMageGameMode::PrepareForNextWave"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="AMageGameMode::PrepareFor\lNextWave",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="AMageGameMode::SetWaveState",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_game_mode.html#a37b8ab0a23f88d5a3653cd510bf10398",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="AMageGameState::SetWaveState",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_game_state.html#acf80d52ee9926b48432bd87acef95acf",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="AMageGameState::OnRep\l_WaveState",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_game_state.html#a9d1211707542135b1088d14966d65cdd",tooltip=" "];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="AMageGameState::WaveState\lChanged",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_game_state.html#a2cf8ab12f833ded5f61a0dd84d57e99b",tooltip=" "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="AMageGameMode::StartWave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_game_mode.html#ab66669aa3d25a7eb0e655e2bd734d007",tooltip=" "];
+  Node6 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="AMageGameMode::SpawnBotTimer\lElapsed",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_game_mode.html#a4e3203946d544c54080b81a717e27bb5",tooltip=" "];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="AMageGameMode::EndWave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_game_mode.html#a3ce2b9b457eccc2d9cdcceece3f817c5",tooltip=" "];
+  Node8 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="AMageGameMode::SpawnNewBot",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_mage_game_mode.html#a630e9e1eecdab66b1f8bce8949e71fce",tooltip=" "];
+}

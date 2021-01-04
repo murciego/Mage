@@ -1,0 +1,284 @@
+\hypertarget{class_a_mage_character}{}\doxysection{Referencia de la Clase AMage\+Character}
+\label{class_a_mage_character}\index{AMageCharacter@{AMageCharacter}}
+
+
+{\ttfamily \#include $<$Mage\+Character.\+h$>$}
+
+Diagrama de herencias de AMage\+Character\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_mage_character}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_mage_character_adcd8bfaa6a557aceb515a1c0a9fc4918}{AMage\+Character}} ()
+\item 
+virtual void \mbox{\hyperlink{class_a_mage_character_a1df773569e5ab439eee0d97c01eaaa02}{Tick}} (float Delta\+Time) override
+\item 
+virtual void \mbox{\hyperlink{class_a_mage_character_a383940e122281866679cf669d3eb3d08}{Setup\+Player\+Input\+Component}} (class UInput\+Component $\ast$Player\+Input\+Component) override
+\item 
+virtual FVector \mbox{\hyperlink{class_a_mage_character_a87ee24d8b5742553d7f3f1dd1bc66641}{Get\+Pawn\+View\+Location}} () const override
+\item 
+void \mbox{\hyperlink{class_a_mage_character_a5b3995caa492a982b829b4c39aa2a19e}{Start\+Fire}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_character_a462892a12a171f65497ad9b09f6b5724}{Stop\+Fire}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_character_aa183c5aa92766189438d249853e2909b}{Menu}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_a_mage_character_a15ccc417629a3b690aeb9b0bf181dc4b}{Begin\+Play}} () override
+\item 
+void \mbox{\hyperlink{class_a_mage_character_a0ad7bd459ec045d88603bf3c77b4021a}{Move\+Forward}} (float Value)
+\item 
+void \mbox{\hyperlink{class_a_mage_character_a93368b1c2d020887754093aa07bd6e53}{Move\+Right}} (float Value)
+\item 
+void \mbox{\hyperlink{class_a_mage_character_aff223baa409bd5543b21758eb6d6184f}{Begin\+Crouch}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_character_a0383cb8d7b1359b0ed769d466125c0d5}{End\+Crouch}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_character_a70e0c57885b6119cb68c1f243066128d}{Begin\+Run}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_character_ac8db6e62efe83e34fdad0b6ad2871916}{End\+Run}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_character_ae9aeb740a1180ec6fc71015448389101}{Begin\+Zoom}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_character_a6320d8d994e0dc0a82cccc99813c4e05}{End\+Zoom}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_character_a26b2585b02b14d1b4bf30d65202831db}{Action}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_character_ad4e8c178a356a697db82d0518d47c345}{Wheel}} (float Value)
+\item 
+void \mbox{\hyperlink{class_a_mage_character_abfd3433282b54d1d1d18d1f8b94fcc11}{Set\+Weapon\+Owner}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_character_a553c5267331b953e4daf36801112b808}{On\+Health\+Changed}} (UMHealth\+Component $\ast$Owning\+Health\+Comp, float Health, float Health\+Delta, const class UDamage\+Type $\ast$Damage\+Type, class AController $\ast$Instigated\+By, AActor $\ast$Damage\+Causer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+UCamera\+Component $\ast$ \mbox{\hyperlink{class_a_mage_character_a5ca088cbd9092bbd30666ed7769462b9}{Camera\+Comp}}
+\item 
+USpring\+Arm\+Component $\ast$ \mbox{\hyperlink{class_a_mage_character_a6e6fb431e190ba8801eea576321c68eb}{Spring\+Arm\+Comp}}
+\item 
+UMHealth\+Component $\ast$ \mbox{\hyperlink{class_a_mage_character_a0e5410d246d76daa58a9f2cb88458b67}{Health\+Comp}}
+\item 
+float \mbox{\hyperlink{class_a_mage_character_a23d0e10468892d5e2c62a8917f9cab61}{Zoomed\+FOV}}
+\item 
+float \mbox{\hyperlink{class_a_mage_character_aa8af5c4b8182034d0849174ed8a71d7e}{Zoom\+Interp\+Speed}}
+\item 
+bool \mbox{\hyperlink{class_a_mage_character_a21da8da2f6fde0b017c5faf30705a8d9}{b\+Wants\+To\+Zoom}}
+\item 
+float \mbox{\hyperlink{class_a_mage_character_af700f50d0940af4ca1c1b9a55f65161f}{Default\+FOV}}
+\item 
+\mbox{\hyperlink{class_a_mage_weapon}{AMage\+Weapon}} $\ast$ \mbox{\hyperlink{class_a_mage_character_a8fb339abe7da96c3b20d3b3e7cdbf054}{Current\+Weapon}}
+\item 
+TSubclass\+Of$<$ \mbox{\hyperlink{class_a_mage_weapon}{AMage\+Weapon}} $>$ \mbox{\hyperlink{class_a_mage_character_a21bcd03b7075ca3d9812fbf38ef4a9d3}{Starter\+Weapon\+Class}}
+\item 
+FName \mbox{\hyperlink{class_a_mage_character_af8985e0f4e2b7a46e952dc021eb170c8}{Weapon\+Attach\+Socket\+Name}}
+\item 
+bool \mbox{\hyperlink{class_a_mage_character_a861fd11b86afbe1a6a696c19c4f09e34}{b\+Died}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_a_mage_character_adcd8bfaa6a557aceb515a1c0a9fc4918}\label{class_a_mage_character_adcd8bfaa6a557aceb515a1c0a9fc4918}} 
+\index{AMageCharacter@{AMageCharacter}!AMageCharacter@{AMageCharacter}}
+\index{AMageCharacter@{AMageCharacter}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{AMageCharacter()}{AMageCharacter()}}
+{\footnotesize\ttfamily AMage\+Character\+::\+AMage\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_a_mage_character_a26b2585b02b14d1b4bf30d65202831db}\label{class_a_mage_character_a26b2585b02b14d1b4bf30d65202831db}} 
+\index{AMageCharacter@{AMageCharacter}!Action@{Action}}
+\index{Action@{Action}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{Action()}{Action()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Action (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_aff223baa409bd5543b21758eb6d6184f}\label{class_a_mage_character_aff223baa409bd5543b21758eb6d6184f}} 
+\index{AMageCharacter@{AMageCharacter}!BeginCrouch@{BeginCrouch}}
+\index{BeginCrouch@{BeginCrouch}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{BeginCrouch()}{BeginCrouch()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Begin\+Crouch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a15ccc417629a3b690aeb9b0bf181dc4b}\label{class_a_mage_character_a15ccc417629a3b690aeb9b0bf181dc4b}} 
+\index{AMageCharacter@{AMageCharacter}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a70e0c57885b6119cb68c1f243066128d}\label{class_a_mage_character_a70e0c57885b6119cb68c1f243066128d}} 
+\index{AMageCharacter@{AMageCharacter}!BeginRun@{BeginRun}}
+\index{BeginRun@{BeginRun}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{BeginRun()}{BeginRun()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Begin\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_ae9aeb740a1180ec6fc71015448389101}\label{class_a_mage_character_ae9aeb740a1180ec6fc71015448389101}} 
+\index{AMageCharacter@{AMageCharacter}!BeginZoom@{BeginZoom}}
+\index{BeginZoom@{BeginZoom}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{BeginZoom()}{BeginZoom()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Begin\+Zoom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a0383cb8d7b1359b0ed769d466125c0d5}\label{class_a_mage_character_a0383cb8d7b1359b0ed769d466125c0d5}} 
+\index{AMageCharacter@{AMageCharacter}!EndCrouch@{EndCrouch}}
+\index{EndCrouch@{EndCrouch}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{EndCrouch()}{EndCrouch()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+End\+Crouch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_ac8db6e62efe83e34fdad0b6ad2871916}\label{class_a_mage_character_ac8db6e62efe83e34fdad0b6ad2871916}} 
+\index{AMageCharacter@{AMageCharacter}!EndRun@{EndRun}}
+\index{EndRun@{EndRun}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{EndRun()}{EndRun()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+End\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a6320d8d994e0dc0a82cccc99813c4e05}\label{class_a_mage_character_a6320d8d994e0dc0a82cccc99813c4e05}} 
+\index{AMageCharacter@{AMageCharacter}!EndZoom@{EndZoom}}
+\index{EndZoom@{EndZoom}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{EndZoom()}{EndZoom()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+End\+Zoom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a87ee24d8b5742553d7f3f1dd1bc66641}\label{class_a_mage_character_a87ee24d8b5742553d7f3f1dd1bc66641}} 
+\index{AMageCharacter@{AMageCharacter}!GetPawnViewLocation@{GetPawnViewLocation}}
+\index{GetPawnViewLocation@{GetPawnViewLocation}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{GetPawnViewLocation()}{GetPawnViewLocation()}}
+{\footnotesize\ttfamily FVector AMage\+Character\+::\+Get\+Pawn\+View\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_a_mage_character_aa183c5aa92766189438d249853e2909b}\label{class_a_mage_character_aa183c5aa92766189438d249853e2909b}} 
+\index{AMageCharacter@{AMageCharacter}!Menu@{Menu}}
+\index{Menu@{Menu}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{Menu()}{Menu()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_mage_character_a0ad7bd459ec045d88603bf3c77b4021a}\label{class_a_mage_character_a0ad7bd459ec045d88603bf3c77b4021a}} 
+\index{AMageCharacter@{AMageCharacter}!MoveForward@{MoveForward}}
+\index{MoveForward@{MoveForward}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{MoveForward()}{MoveForward()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Move\+Forward (\begin{DoxyParamCaption}\item[{float}]{Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a93368b1c2d020887754093aa07bd6e53}\label{class_a_mage_character_a93368b1c2d020887754093aa07bd6e53}} 
+\index{AMageCharacter@{AMageCharacter}!MoveRight@{MoveRight}}
+\index{MoveRight@{MoveRight}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{MoveRight()}{MoveRight()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Move\+Right (\begin{DoxyParamCaption}\item[{float}]{Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a553c5267331b953e4daf36801112b808}\label{class_a_mage_character_a553c5267331b953e4daf36801112b808}} 
+\index{AMageCharacter@{AMageCharacter}!OnHealthChanged@{OnHealthChanged}}
+\index{OnHealthChanged@{OnHealthChanged}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{OnHealthChanged()}{OnHealthChanged()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+On\+Health\+Changed (\begin{DoxyParamCaption}\item[{UMHealth\+Component $\ast$}]{Owning\+Health\+Comp,  }\item[{float}]{Health,  }\item[{float}]{Health\+Delta,  }\item[{const class UDamage\+Type $\ast$}]{Damage\+Type,  }\item[{class AController $\ast$}]{Instigated\+By,  }\item[{AActor $\ast$}]{Damage\+Causer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a383940e122281866679cf669d3eb3d08}\label{class_a_mage_character_a383940e122281866679cf669d3eb3d08}} 
+\index{AMageCharacter@{AMageCharacter}!SetupPlayerInputComponent@{SetupPlayerInputComponent}}
+\index{SetupPlayerInputComponent@{SetupPlayerInputComponent}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{SetupPlayerInputComponent()}{SetupPlayerInputComponent()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Setup\+Player\+Input\+Component (\begin{DoxyParamCaption}\item[{class UInput\+Component $\ast$}]{Player\+Input\+Component }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_a_mage_character_abfd3433282b54d1d1d18d1f8b94fcc11}\label{class_a_mage_character_abfd3433282b54d1d1d18d1f8b94fcc11}} 
+\index{AMageCharacter@{AMageCharacter}!SetWeaponOwner@{SetWeaponOwner}}
+\index{SetWeaponOwner@{SetWeaponOwner}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{SetWeaponOwner()}{SetWeaponOwner()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Set\+Weapon\+Owner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a5b3995caa492a982b829b4c39aa2a19e}\label{class_a_mage_character_a5b3995caa492a982b829b4c39aa2a19e}} 
+\index{AMageCharacter@{AMageCharacter}!StartFire@{StartFire}}
+\index{StartFire@{StartFire}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{StartFire()}{StartFire()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Start\+Fire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_mage_character_a462892a12a171f65497ad9b09f6b5724}\label{class_a_mage_character_a462892a12a171f65497ad9b09f6b5724}} 
+\index{AMageCharacter@{AMageCharacter}!StopFire@{StopFire}}
+\index{StopFire@{StopFire}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{StopFire()}{StopFire()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Stop\+Fire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_mage_character_a1df773569e5ab439eee0d97c01eaaa02}\label{class_a_mage_character_a1df773569e5ab439eee0d97c01eaaa02}} 
+\index{AMageCharacter@{AMageCharacter}!Tick@{Tick}}
+\index{Tick@{Tick}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_a_mage_character_ad4e8c178a356a697db82d0518d47c345}\label{class_a_mage_character_ad4e8c178a356a697db82d0518d47c345}} 
+\index{AMageCharacter@{AMageCharacter}!Wheel@{Wheel}}
+\index{Wheel@{Wheel}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{Wheel()}{Wheel()}}
+{\footnotesize\ttfamily void AMage\+Character\+::\+Wheel (\begin{DoxyParamCaption}\item[{float}]{Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{class_a_mage_character_a861fd11b86afbe1a6a696c19c4f09e34}\label{class_a_mage_character_a861fd11b86afbe1a6a696c19c4f09e34}} 
+\index{AMageCharacter@{AMageCharacter}!bDied@{bDied}}
+\index{bDied@{bDied}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{bDied}{bDied}}
+{\footnotesize\ttfamily bool AMage\+Character\+::b\+Died\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a21da8da2f6fde0b017c5faf30705a8d9}\label{class_a_mage_character_a21da8da2f6fde0b017c5faf30705a8d9}} 
+\index{AMageCharacter@{AMageCharacter}!bWantsToZoom@{bWantsToZoom}}
+\index{bWantsToZoom@{bWantsToZoom}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{bWantsToZoom}{bWantsToZoom}}
+{\footnotesize\ttfamily bool AMage\+Character\+::b\+Wants\+To\+Zoom\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a5ca088cbd9092bbd30666ed7769462b9}\label{class_a_mage_character_a5ca088cbd9092bbd30666ed7769462b9}} 
+\index{AMageCharacter@{AMageCharacter}!CameraComp@{CameraComp}}
+\index{CameraComp@{CameraComp}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{CameraComp}{CameraComp}}
+{\footnotesize\ttfamily UCamera\+Component$\ast$ AMage\+Character\+::\+Camera\+Comp\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a8fb339abe7da96c3b20d3b3e7cdbf054}\label{class_a_mage_character_a8fb339abe7da96c3b20d3b3e7cdbf054}} 
+\index{AMageCharacter@{AMageCharacter}!CurrentWeapon@{CurrentWeapon}}
+\index{CurrentWeapon@{CurrentWeapon}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{CurrentWeapon}{CurrentWeapon}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_mage_weapon}{AMage\+Weapon}}$\ast$ AMage\+Character\+::\+Current\+Weapon\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_af700f50d0940af4ca1c1b9a55f65161f}\label{class_a_mage_character_af700f50d0940af4ca1c1b9a55f65161f}} 
+\index{AMageCharacter@{AMageCharacter}!DefaultFOV@{DefaultFOV}}
+\index{DefaultFOV@{DefaultFOV}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{DefaultFOV}{DefaultFOV}}
+{\footnotesize\ttfamily float AMage\+Character\+::\+Default\+FOV\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a0e5410d246d76daa58a9f2cb88458b67}\label{class_a_mage_character_a0e5410d246d76daa58a9f2cb88458b67}} 
+\index{AMageCharacter@{AMageCharacter}!HealthComp@{HealthComp}}
+\index{HealthComp@{HealthComp}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{HealthComp}{HealthComp}}
+{\footnotesize\ttfamily UMHealth\+Component$\ast$ AMage\+Character\+::\+Health\+Comp\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a6e6fb431e190ba8801eea576321c68eb}\label{class_a_mage_character_a6e6fb431e190ba8801eea576321c68eb}} 
+\index{AMageCharacter@{AMageCharacter}!SpringArmComp@{SpringArmComp}}
+\index{SpringArmComp@{SpringArmComp}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{SpringArmComp}{SpringArmComp}}
+{\footnotesize\ttfamily USpring\+Arm\+Component$\ast$ AMage\+Character\+::\+Spring\+Arm\+Comp\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a21bcd03b7075ca3d9812fbf38ef4a9d3}\label{class_a_mage_character_a21bcd03b7075ca3d9812fbf38ef4a9d3}} 
+\index{AMageCharacter@{AMageCharacter}!StarterWeaponClass@{StarterWeaponClass}}
+\index{StarterWeaponClass@{StarterWeaponClass}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{StarterWeaponClass}{StarterWeaponClass}}
+{\footnotesize\ttfamily TSubclass\+Of$<$\mbox{\hyperlink{class_a_mage_weapon}{AMage\+Weapon}}$>$ AMage\+Character\+::\+Starter\+Weapon\+Class\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_af8985e0f4e2b7a46e952dc021eb170c8}\label{class_a_mage_character_af8985e0f4e2b7a46e952dc021eb170c8}} 
+\index{AMageCharacter@{AMageCharacter}!WeaponAttachSocketName@{WeaponAttachSocketName}}
+\index{WeaponAttachSocketName@{WeaponAttachSocketName}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{WeaponAttachSocketName}{WeaponAttachSocketName}}
+{\footnotesize\ttfamily FName AMage\+Character\+::\+Weapon\+Attach\+Socket\+Name\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_a23d0e10468892d5e2c62a8917f9cab61}\label{class_a_mage_character_a23d0e10468892d5e2c62a8917f9cab61}} 
+\index{AMageCharacter@{AMageCharacter}!ZoomedFOV@{ZoomedFOV}}
+\index{ZoomedFOV@{ZoomedFOV}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{ZoomedFOV}{ZoomedFOV}}
+{\footnotesize\ttfamily float AMage\+Character\+::\+Zoomed\+FOV\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_character_aa8af5c4b8182034d0849174ed8a71d7e}\label{class_a_mage_character_aa8af5c4b8182034d0849174ed8a71d7e}} 
+\index{AMageCharacter@{AMageCharacter}!ZoomInterpSpeed@{ZoomInterpSpeed}}
+\index{ZoomInterpSpeed@{ZoomInterpSpeed}!AMageCharacter@{AMageCharacter}}
+\doxysubsubsection{\texorpdfstring{ZoomInterpSpeed}{ZoomInterpSpeed}}
+{\footnotesize\ttfamily float AMage\+Character\+::\+Zoom\+Interp\+Speed\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Public/\mbox{\hyperlink{_mage_character_8h}{Mage\+Character.\+h}}\item 
+Private/\mbox{\hyperlink{_mage_character_8cpp}{Mage\+Character.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,11 @@
+digraph "Private/Widgets/Components" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_d90bb6e5b017f7a4c5274ce4cdf11cad {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Widgets" fontname="Helvetica", fontsize="10", URL="dir_d90bb6e5b017f7a4c5274ce4cdf11cad.html"]
+  dir_e03cdec29bc3a870d2f0ee1242970517 [shape=box, label="Components", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_e03cdec29bc3a870d2f0ee1242970517.html"];
+  }
+  dir_feff140f4a693dc5833fe8f00989f54b [shape=box label="Public" fillcolor="white" style="filled" color="red" URL="dir_feff140f4a693dc5833fe8f00989f54b.html"];
+  dir_e03cdec29bc3a870d2f0ee1242970517->dir_feff140f4a693dc5833fe8f00989f54b [headlabel="3", labeldistance=1.5 headhref="dir_000005_000006.html"];
+}

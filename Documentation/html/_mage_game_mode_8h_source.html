@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Mage: Fichero Fuente Public/MageGameMode.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Mage
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_mage_game_mode_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">MageGameMode.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_mage_game_mode_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;CoreMinimal.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;GameFramework/GameModeBase.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;MageGameMode.generated.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">enum class</span> <a class="code" href="_mage_game_state_8h.html#af102a06de5b4085d09ff8526f11cfb15">EWaveState</a> : uint8;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="_mage_game_mode_8h.html#a6bf6e444cf691899381c43463d9463f0">   12</a></span>&#160;<a class="code" href="_mage_game_mode_8h.html#a6bf6e444cf691899381c43463d9463f0">DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams</a>(FOnActorKilled, AActor *, VictimActor, AActor *, KillerActor, AController*, KillerController);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;UCLASS()</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_a_mage_game_mode.html">   17</a></span>&#160;class MAGE_API <a class="code" href="class_a_mage_game_mode.html">AMageGameMode</a> : <span class="keyword">public</span> AGameModeBase</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    GENERATED_BODY()</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_a_mage_game_mode.html#a0876a9aa4b190d5ac8f8e0f43bf06a34">   21</a></span>&#160;    FTimerHandle <a class="code" href="class_a_mage_game_mode.html#a0876a9aa4b190d5ac8f8e0f43bf06a34">TimerHandle_BotSpawner</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_a_mage_game_mode.html#afc10f90e897b342f7b057c9a340afc15">   23</a></span>&#160;    FTimerHandle <a class="code" href="class_a_mage_game_mode.html#afc10f90e897b342f7b057c9a340afc15">TimerHandle_NextWaveStart</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_a_mage_game_mode.html#a34672f87d72c7a8848abb1a81159e65c">   25</a></span>&#160;    int32 <a class="code" href="class_a_mage_game_mode.html#a34672f87d72c7a8848abb1a81159e65c">NrOfBotsToSpawn</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_a_mage_game_mode.html#a6418326b0b8d71f4cba654bc73295663">   26</a></span>&#160;    int32 <a class="code" href="class_a_mage_game_mode.html#a6418326b0b8d71f4cba654bc73295663">WaveCount</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    UPROPERTY(EditDefaultsOnly, Category= <span class="stringliteral">&quot;GameMode&quot;</span>)</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_a_mage_game_mode.html#a7a53a3ab12e775011e4fa7d854df698d">   29</a></span>&#160;    float TimeBetweenWaves;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;protected:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    UFUNCTION(BlueprintImplementableEvent, Category = &quot;GameMode&quot;)</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_a_mage_game_mode.html#a630e9e1eecdab66b1f8bce8949e71fce">   33</a></span>&#160;    <span class="keywordtype">void</span> SpawnNewBot();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> SpawnBotTimerElapsed();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> StartWave();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> EndWave();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> PrepareForNextWave();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> CheckWaveState();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> CheckAnyPlayerAlive();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="_mage_game_state_8h.html#af102a06de5b4085d09ff8526f11cfb15a8f347bc7cebca9fa6d97e70c6bc29eb3">GameOver</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> SetWaveState(<a class="code" href="_mage_game_state_8h.html#af102a06de5b4085d09ff8526f11cfb15">EWaveState</a> NewState);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> RestartDeadPlayers();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;public:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_a_mage_game_mode.html">AMageGameMode</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    virtual <span class="keywordtype">void</span> StartPlay() override;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    virtual <span class="keywordtype">void</span> Tick(<span class="keywordtype">float</span> DeltaSeconds) override;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    UPROPERTY(BlueprintAssignable, Category=&quot;GameMode&quot;)</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_a_mage_game_mode.html#a76a8862a14f3a6d181b175601b6d357e">   53</a></span>&#160;    FOnActorKilled OnActorKilled;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
+<div class="ttc" id="a_mage_game_mode_8h_html_a6bf6e444cf691899381c43463d9463f0"><div class="ttname"><a href="_mage_game_mode_8h.html#a6bf6e444cf691899381c43463d9463f0">DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams</a></div><div class="ttdeci">enum EWaveState uint8 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnActorKilled, AActor *, VictimActor, AActor *, KillerActor, AController *, KillerController)</div></div>
+<div class="ttc" id="a_mage_game_state_8h_html_af102a06de5b4085d09ff8526f11cfb15"><div class="ttname"><a href="_mage_game_state_8h.html#af102a06de5b4085d09ff8526f11cfb15">EWaveState</a></div><div class="ttdeci">EWaveState</div><div class="ttdef"><b>Definition:</b> MageGameState.h:10</div></div>
+<div class="ttc" id="a_mage_game_state_8h_html_af102a06de5b4085d09ff8526f11cfb15a8f347bc7cebca9fa6d97e70c6bc29eb3"><div class="ttname"><a href="_mage_game_state_8h.html#af102a06de5b4085d09ff8526f11cfb15a8f347bc7cebca9fa6d97e70c6bc29eb3">EWaveState::GameOver</a></div><div class="ttdeci">@ GameOver</div></div>
+<div class="ttc" id="aclass_a_mage_game_mode_html"><div class="ttname"><a href="class_a_mage_game_mode.html">AMageGameMode</a></div><div class="ttdef"><b>Definition:</b> MageGameMode.h:18</div></div>
+<div class="ttc" id="aclass_a_mage_game_mode_html_a0876a9aa4b190d5ac8f8e0f43bf06a34"><div class="ttname"><a href="class_a_mage_game_mode.html#a0876a9aa4b190d5ac8f8e0f43bf06a34">AMageGameMode::TimerHandle_BotSpawner</a></div><div class="ttdeci">FTimerHandle TimerHandle_BotSpawner</div><div class="ttdef"><b>Definition:</b> MageGameMode.h:21</div></div>
+<div class="ttc" id="aclass_a_mage_game_mode_html_a34672f87d72c7a8848abb1a81159e65c"><div class="ttname"><a href="class_a_mage_game_mode.html#a34672f87d72c7a8848abb1a81159e65c">AMageGameMode::NrOfBotsToSpawn</a></div><div class="ttdeci">int32 NrOfBotsToSpawn</div><div class="ttdef"><b>Definition:</b> MageGameMode.h:25</div></div>
+<div class="ttc" id="aclass_a_mage_game_mode_html_a6418326b0b8d71f4cba654bc73295663"><div class="ttname"><a href="class_a_mage_game_mode.html#a6418326b0b8d71f4cba654bc73295663">AMageGameMode::WaveCount</a></div><div class="ttdeci">int32 WaveCount</div><div class="ttdef"><b>Definition:</b> MageGameMode.h:26</div></div>
+<div class="ttc" id="aclass_a_mage_game_mode_html_afc10f90e897b342f7b057c9a340afc15"><div class="ttname"><a href="class_a_mage_game_mode.html#afc10f90e897b342f7b057c9a340afc15">AMageGameMode::TimerHandle_NextWaveStart</a></div><div class="ttdeci">FTimerHandle TimerHandle_NextWaveStart</div><div class="ttdef"><b>Definition:</b> MageGameMode.h:23</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_feff140f4a693dc5833fe8f00989f54b.html">Public</a></li><li class="navelem"><a class="el" href="_mage_game_mode_8h.html">MageGameMode.h</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.0 </li>
+  </ul>
+</div>
+</body>
+</html>

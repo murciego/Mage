@@ -1,0 +1,17 @@
+digraph "D:/proyectos/UnrealEngine/Unreal Projects/Mage/Source/Mage/Public" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_b9b067d6d9c392be61d86fb541394fd1 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Mage" fontname="Helvetica", fontsize="10", URL="dir_b9b067d6d9c392be61d86fb541394fd1.html"]
+  subgraph clusterdir_baf05cd087e1fb98dbcab470cee9273d {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_baf05cd087e1fb98dbcab470cee9273d.html"];
+    dir_baf05cd087e1fb98dbcab470cee9273d [shape=plaintext label="Public"];
+    dir_4611a619f65c82692b1823985d62cc4b [shape=box label="AI" color="black" fillcolor="white" style="filled" URL="dir_4611a619f65c82692b1823985d62cc4b.html"];
+    dir_ebf6b6c1a55cf98c7efe8afb66123d03 [shape=box label="Components" color="black" fillcolor="white" style="filled" URL="dir_ebf6b6c1a55cf98c7efe8afb66123d03.html"];
+    dir_6127e633ac394fe40277262d0c40a24a [shape=box label="core" color="black" fillcolor="white" style="filled" URL="dir_6127e633ac394fe40277262d0c40a24a.html"];
+    dir_b477d441916640b79ca27fc9658e9a83 [shape=box label="Widgets" color="red" fillcolor="white" style="filled" URL="dir_b477d441916640b79ca27fc9658e9a83.html"];
+  }
+  }
+  dir_b477d441916640b79ca27fc9658e9a83->dir_6127e633ac394fe40277262d0c40a24a [headlabel="1", labeldistance=1.5 headhref="dir_000017_000016.html"];
+}

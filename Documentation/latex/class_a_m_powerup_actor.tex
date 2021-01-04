@@ -1,0 +1,148 @@
+\hypertarget{class_a_m_powerup_actor}{}\doxysection{Referencia de la Clase AMPowerup\+Actor}
+\label{class_a_m_powerup_actor}\index{AMPowerupActor@{AMPowerupActor}}
+
+
+{\ttfamily \#include $<$MPowerup\+Actor.\+h$>$}
+
+Diagrama de herencias de AMPowerup\+Actor\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_m_powerup_actor}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_m_powerup_actor_a9433609ebe6db8a37ba347d5ddc3e94a}{AMPowerup\+Actor}} ()
+\item 
+void \mbox{\hyperlink{class_a_m_powerup_actor_a830c99eb3a7eabd21b5b30ab64f00c1a}{Activate\+Powerup}} (AActor $\ast$Activate\+For)
+\item 
+void \mbox{\hyperlink{class_a_m_powerup_actor_a760b4d8d4b9fe3fb3c89f100b88a5524}{On\+Activated}} (AActor $\ast$Activate\+For)
+\item 
+void \mbox{\hyperlink{class_a_m_powerup_actor_a4f4375f4b06cbf59eab73b0267e1b50f}{On\+Powerup\+Ticked}} ()
+\item 
+void \mbox{\hyperlink{class_a_m_powerup_actor_ad893d76c1ca1ae272e51925be3316d87}{On\+Expired}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_a_m_powerup_actor_a9c5a029e2ce9d6441d425ccea60a0d9a}{Begin\+Play}} () override
+\item 
+void \mbox{\hyperlink{class_a_m_powerup_actor_a3f4514aea17f8bd14e6224ce3fc7e20b}{On\+Tick\+Powerup}} ()
+\item 
+void \mbox{\hyperlink{class_a_m_powerup_actor_a77923813850a49e477b6fbda6751eaba}{On\+Rep\+\_\+\+Powerup\+Active}} ()
+\item 
+void \mbox{\hyperlink{class_a_m_powerup_actor_a52ef83d2b1555ffedf25329ae7e62ec7}{On\+Powerup\+State\+Changed}} (bool b\+New\+Is\+Active)
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_a_m_powerup_actor_a02bc91956342e317d7bb971feef121aa}{Powerup\+Interval}}
+\item 
+int32 \mbox{\hyperlink{class_a_m_powerup_actor_a759870d2b8a25d910b0dd79603dbf6b2}{Total\+Nr\+Of\+Ticks}}
+\item 
+FTimer\+Handle \mbox{\hyperlink{class_a_m_powerup_actor_a68b44f206f66b1ef723c03b1856bec22}{Timer\+Handle\+\_\+\+Powerup\+Tick}}
+\item 
+int32 \mbox{\hyperlink{class_a_m_powerup_actor_ac6d1a506804a35b5ebecfbd26b25de0f}{Ticks\+Processed}}
+\item 
+bool \mbox{\hyperlink{class_a_m_powerup_actor_a89b35c1595ca23868e999ea3d94cd73f}{b\+Is\+Powerup\+Active}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_a_m_powerup_actor_a9433609ebe6db8a37ba347d5ddc3e94a}\label{class_a_m_powerup_actor_a9433609ebe6db8a37ba347d5ddc3e94a}} 
+\index{AMPowerupActor@{AMPowerupActor}!AMPowerupActor@{AMPowerupActor}}
+\index{AMPowerupActor@{AMPowerupActor}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{AMPowerupActor()}{AMPowerupActor()}}
+{\footnotesize\ttfamily AMPowerup\+Actor\+::\+AMPowerup\+Actor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_a_m_powerup_actor_a830c99eb3a7eabd21b5b30ab64f00c1a}\label{class_a_m_powerup_actor_a830c99eb3a7eabd21b5b30ab64f00c1a}} 
+\index{AMPowerupActor@{AMPowerupActor}!ActivatePowerup@{ActivatePowerup}}
+\index{ActivatePowerup@{ActivatePowerup}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{ActivatePowerup()}{ActivatePowerup()}}
+{\footnotesize\ttfamily void AMPowerup\+Actor\+::\+Activate\+Powerup (\begin{DoxyParamCaption}\item[{AActor $\ast$}]{Activate\+For }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_m_powerup_actor_a9c5a029e2ce9d6441d425ccea60a0d9a}\label{class_a_m_powerup_actor_a9c5a029e2ce9d6441d425ccea60a0d9a}} 
+\index{AMPowerupActor@{AMPowerupActor}!BeginPlay@{BeginPlay}}
+\index{BeginPlay@{BeginPlay}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{BeginPlay()}{BeginPlay()}}
+{\footnotesize\ttfamily void AMPowerup\+Actor\+::\+Begin\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_a_m_powerup_actor_a760b4d8d4b9fe3fb3c89f100b88a5524}\label{class_a_m_powerup_actor_a760b4d8d4b9fe3fb3c89f100b88a5524}} 
+\index{AMPowerupActor@{AMPowerupActor}!OnActivated@{OnActivated}}
+\index{OnActivated@{OnActivated}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{OnActivated()}{OnActivated()}}
+{\footnotesize\ttfamily void AMPowerup\+Actor\+::\+On\+Activated (\begin{DoxyParamCaption}\item[{AActor $\ast$}]{Activate\+For }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_m_powerup_actor_ad893d76c1ca1ae272e51925be3316d87}\label{class_a_m_powerup_actor_ad893d76c1ca1ae272e51925be3316d87}} 
+\index{AMPowerupActor@{AMPowerupActor}!OnExpired@{OnExpired}}
+\index{OnExpired@{OnExpired}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{OnExpired()}{OnExpired()}}
+{\footnotesize\ttfamily void AMPowerup\+Actor\+::\+On\+Expired (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_m_powerup_actor_a52ef83d2b1555ffedf25329ae7e62ec7}\label{class_a_m_powerup_actor_a52ef83d2b1555ffedf25329ae7e62ec7}} 
+\index{AMPowerupActor@{AMPowerupActor}!OnPowerupStateChanged@{OnPowerupStateChanged}}
+\index{OnPowerupStateChanged@{OnPowerupStateChanged}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{OnPowerupStateChanged()}{OnPowerupStateChanged()}}
+{\footnotesize\ttfamily void AMPowerup\+Actor\+::\+On\+Powerup\+State\+Changed (\begin{DoxyParamCaption}\item[{bool}]{b\+New\+Is\+Active }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_powerup_actor_a4f4375f4b06cbf59eab73b0267e1b50f}\label{class_a_m_powerup_actor_a4f4375f4b06cbf59eab73b0267e1b50f}} 
+\index{AMPowerupActor@{AMPowerupActor}!OnPowerupTicked@{OnPowerupTicked}}
+\index{OnPowerupTicked@{OnPowerupTicked}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{OnPowerupTicked()}{OnPowerupTicked()}}
+{\footnotesize\ttfamily void AMPowerup\+Actor\+::\+On\+Powerup\+Ticked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_m_powerup_actor_a77923813850a49e477b6fbda6751eaba}\label{class_a_m_powerup_actor_a77923813850a49e477b6fbda6751eaba}} 
+\index{AMPowerupActor@{AMPowerupActor}!OnRep\_PowerupActive@{OnRep\_PowerupActive}}
+\index{OnRep\_PowerupActive@{OnRep\_PowerupActive}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{OnRep\_PowerupActive()}{OnRep\_PowerupActive()}}
+{\footnotesize\ttfamily void AMPowerup\+Actor\+::\+On\+Rep\+\_\+\+Powerup\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_powerup_actor_a3f4514aea17f8bd14e6224ce3fc7e20b}\label{class_a_m_powerup_actor_a3f4514aea17f8bd14e6224ce3fc7e20b}} 
+\index{AMPowerupActor@{AMPowerupActor}!OnTickPowerup@{OnTickPowerup}}
+\index{OnTickPowerup@{OnTickPowerup}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{OnTickPowerup()}{OnTickPowerup()}}
+{\footnotesize\ttfamily void AMPowerup\+Actor\+::\+On\+Tick\+Powerup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{class_a_m_powerup_actor_a89b35c1595ca23868e999ea3d94cd73f}\label{class_a_m_powerup_actor_a89b35c1595ca23868e999ea3d94cd73f}} 
+\index{AMPowerupActor@{AMPowerupActor}!bIsPowerupActive@{bIsPowerupActive}}
+\index{bIsPowerupActive@{bIsPowerupActive}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{bIsPowerupActive}{bIsPowerupActive}}
+{\footnotesize\ttfamily bool AMPowerup\+Actor\+::b\+Is\+Powerup\+Active\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_powerup_actor_a02bc91956342e317d7bb971feef121aa}\label{class_a_m_powerup_actor_a02bc91956342e317d7bb971feef121aa}} 
+\index{AMPowerupActor@{AMPowerupActor}!PowerupInterval@{PowerupInterval}}
+\index{PowerupInterval@{PowerupInterval}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{PowerupInterval}{PowerupInterval}}
+{\footnotesize\ttfamily float AMPowerup\+Actor\+::\+Powerup\+Interval\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_powerup_actor_ac6d1a506804a35b5ebecfbd26b25de0f}\label{class_a_m_powerup_actor_ac6d1a506804a35b5ebecfbd26b25de0f}} 
+\index{AMPowerupActor@{AMPowerupActor}!TicksProcessed@{TicksProcessed}}
+\index{TicksProcessed@{TicksProcessed}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{TicksProcessed}{TicksProcessed}}
+{\footnotesize\ttfamily int32 AMPowerup\+Actor\+::\+Ticks\+Processed\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_powerup_actor_a68b44f206f66b1ef723c03b1856bec22}\label{class_a_m_powerup_actor_a68b44f206f66b1ef723c03b1856bec22}} 
+\index{AMPowerupActor@{AMPowerupActor}!TimerHandle\_PowerupTick@{TimerHandle\_PowerupTick}}
+\index{TimerHandle\_PowerupTick@{TimerHandle\_PowerupTick}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{TimerHandle\_PowerupTick}{TimerHandle\_PowerupTick}}
+{\footnotesize\ttfamily FTimer\+Handle AMPowerup\+Actor\+::\+Timer\+Handle\+\_\+\+Powerup\+Tick\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_m_powerup_actor_a759870d2b8a25d910b0dd79603dbf6b2}\label{class_a_m_powerup_actor_a759870d2b8a25d910b0dd79603dbf6b2}} 
+\index{AMPowerupActor@{AMPowerupActor}!TotalNrOfTicks@{TotalNrOfTicks}}
+\index{TotalNrOfTicks@{TotalNrOfTicks}!AMPowerupActor@{AMPowerupActor}}
+\doxysubsubsection{\texorpdfstring{TotalNrOfTicks}{TotalNrOfTicks}}
+{\footnotesize\ttfamily int32 AMPowerup\+Actor\+::\+Total\+Nr\+Of\+Ticks\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Public/\mbox{\hyperlink{_m_powerup_actor_8h}{MPowerup\+Actor.\+h}}\item 
+Private/\mbox{\hyperlink{_m_powerup_actor_8cpp}{MPowerup\+Actor.\+cpp}}\end{DoxyCompactItemize}

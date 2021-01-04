@@ -1,0 +1,13 @@
+digraph "D:/proyectos/UnrealEngine/Unreal Projects/Mage" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_70a0cefb9de39a088217b349899dce84 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Unreal Projects" fontname="Helvetica", fontsize="10", URL="dir_70a0cefb9de39a088217b349899dce84.html"]
+  subgraph clusterdir_3ce1a1ac788f47cdc50dee1d19cceac8 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_3ce1a1ac788f47cdc50dee1d19cceac8.html"];
+    dir_3ce1a1ac788f47cdc50dee1d19cceac8 [shape=plaintext label="Mage"];
+    dir_153478afccccf8d897358d540bffc233 [shape=box label="Source" color="red" fillcolor="white" style="filled" URL="dir_153478afccccf8d897358d540bffc233.html"];
+  }
+  }
+}

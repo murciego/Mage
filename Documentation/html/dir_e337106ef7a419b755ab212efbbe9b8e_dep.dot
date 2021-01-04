@@ -1,0 +1,11 @@
+digraph "D:/proyectos/UnrealEngine/Unreal Projects/Mage/Source/Mage/Private/Components" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_3f1cc2ebc32195d9885eb7d682b8d9cd {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Private" fontname="Helvetica", fontsize="10", URL="dir_3f1cc2ebc32195d9885eb7d682b8d9cd.html"]
+  dir_e337106ef7a419b755ab212efbbe9b8e [shape=box, label="Components", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_e337106ef7a419b755ab212efbbe9b8e.html"];
+  }
+  dir_baf05cd087e1fb98dbcab470cee9273d [shape=box label="Public" fillcolor="white" style="filled" color="red" URL="dir_baf05cd087e1fb98dbcab470cee9273d.html"];
+  dir_e337106ef7a419b755ab212efbbe9b8e->dir_baf05cd087e1fb98dbcab470cee9273d [headlabel="2", labeldistance=1.5 headhref="dir_000009_000013.html"];
+}

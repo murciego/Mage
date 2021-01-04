@@ -1,5 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+/*****************************************************************//**
+ * \file   MTrackerBot.cpp
+ * \brief  AI que persigue al jugador más cercano
+ * 
+ * \author maxim
+ * \date   January 2021
+ *********************************************************************/
 #include "AI/MTrackerBot.h"
 #include "Components/StaticMeshComponent.h"
 #include "Kismet/GameplayStatics.h"
@@ -54,7 +59,10 @@ AMTrackerBot::AMTrackerBot()
 	SelftDamageInterval = 0.25f;
 }
 
-// Called when the game starts or when spawned
+/**
+ * Se inicia el timer TimerHandle_CheckPowerLevel en el servidor.
+ * 
+ */
 void AMTrackerBot::BeginPlay()
 {
 	Super::BeginPlay();
@@ -73,7 +81,16 @@ void AMTrackerBot::BeginPlay()
 
 	}
 }
-
+/**
+ * Manejador del daño.
+ * 
+ * \param OwningHealthComp Componente de vida
+ * \param Health Vida actual
+ * \param HealthDelta 
+ * \param DamageType Tipo de daño
+ * \param InstigatedBy Instigador
+ * \param DamageCauser Quien causa el daño
+ */
 void AMTrackerBot::HandleTakeDamage(
 	UMHealthComponent *OwningHealthComp,
 	float Health,
@@ -94,7 +111,13 @@ void AMTrackerBot::HandleTakeDamage(
 		SelfDestruct();
 	}
 }
-// Called every frame
+
+/**
+ * En el tick se van seleccionando los puntos en dirección al jugador mas cercano.
+ * Si se alcanza un punto, se busca el siguiente. Así hasta que se alcance al jugador o muera.
+ * 
+ * \param DeltaTime
+ */
 void AMTrackerBot::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -125,7 +148,11 @@ void AMTrackerBot::Tick(float DeltaTime)
 		}
 	}
 }
-
+/**
+ * Busca el siguiente punto en dirección al jugador y lo devuelve .
+ * 
+ * \return navPath point
+ */
 FVector AMTrackerBot::GetNextPathPoint()
 {
 
@@ -180,6 +207,10 @@ FVector AMTrackerBot::GetNextPathPoint()
 	return GetActorLocation();
 }
 
+/**
+ * Pues eso, se autodestruye al tener al jugador cerca.
+ * 
+ */
 void AMTrackerBot::SelfDestruct()
 {
 	if (bExploded)
@@ -219,7 +250,11 @@ void AMTrackerBot::SelfDestruct()
 		SetLifeSpan(2.0f);
 	}
 }
-
+/**
+ * Evento que se lanca cuando un actor entra en rango.
+ * 
+ * \param OtherActor
+ */
 void AMTrackerBot::NotifyActorBeginOverlap(AActor *OtherActor)
 {
 	Super::NotifyActorBeginOverlap(OtherActor);
@@ -239,11 +274,20 @@ void AMTrackerBot::NotifyActorBeginOverlap(AActor *OtherActor)
 		}
 	}
 }
+
+/**
+ * Se hace daño a modo de timer para la autodestrucción.
+ * si le queda poca vida, tarda menos en explotar
+ * 
+ */
 void AMTrackerBot::DamageSelf()
 {
 	UGameplayStatics::ApplyDamage(this, 20, GetInstigatorController(), this, nullptr);
 }
-
+/**
+ * Comprueba los trackerbots en area para fortalecerse.
+ * 
+ */
 void AMTrackerBot::OnCheckNearbyBots() {
 	const float Radius = 600;
 
@@ -291,7 +335,10 @@ void AMTrackerBot::OnCheckNearbyBots() {
 		DrawDebugString(GetWorld(), FVector(0, 0, 0), FString::FromInt(PowerLevel), this, FColor::White, 1.0f, true);
 	}
 }
-
+/**
+ * Refresca el camino en caso de haberse quedado atascado.
+ * 
+ */
 void AMTrackerBot::RefreshPath() {
 	NextPathPoint = GetNextPathPoint();
 }

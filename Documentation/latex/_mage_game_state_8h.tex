@@ -1,0 +1,53 @@
+\hypertarget{_mage_game_state_8h}{}\doxysection{Referencia del Archivo Public/\+Mage\+Game\+State.h}
+\label{_mage_game_state_8h}\index{Public/MageGameState.h@{Public/MageGameState.h}}
+{\ttfamily \#include \char`\"{}Core\+Minimal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Game\+Framework/\+Game\+State\+Base.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Mage\+Game\+State.\+generated.\+h\char`\"{}}\newline
+\doxysubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_a_mage_game_state}{AMage\+Game\+State}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15}{EWave\+State}} \+: uint8 \{ \newline
+\mbox{\hyperlink{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a81476354c911d99e35d868b6a7ae542d}{Waiting\+To\+Start}}
+, \mbox{\hyperlink{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a07e8a04094e482944169b00782d2b67f}{Wave\+In\+Progress}}
+, \mbox{\hyperlink{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a2b455d40b650b6ae2fcdeaa62995e806}{Waiting\+To\+Complete}}
+, \mbox{\hyperlink{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a529052acee942c139a92a3c8feccf5f7}{Wave\+Complete}}
+, \newline
+\mbox{\hyperlink{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a8f347bc7cebca9fa6d97e70c6bc29eb3}{Game\+Over}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las enumeraciones}
+\mbox{\Hypertarget{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15}\label{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15}} 
+\index{MageGameState.h@{MageGameState.h}!EWaveState@{EWaveState}}
+\index{EWaveState@{EWaveState}!MageGameState.h@{MageGameState.h}}
+\doxysubsubsection{\texorpdfstring{EWaveState}{EWaveState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15}{EWave\+State}} \+: uint8\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WaitingToStart@{WaitingToStart}!MageGameState.h@{MageGameState.h}}\index{MageGameState.h@{MageGameState.h}!WaitingToStart@{WaitingToStart}}}\mbox{\Hypertarget{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a81476354c911d99e35d868b6a7ae542d}\label{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a81476354c911d99e35d868b6a7ae542d}} 
+Waiting\+To\+Start&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WaveInProgress@{WaveInProgress}!MageGameState.h@{MageGameState.h}}\index{MageGameState.h@{MageGameState.h}!WaveInProgress@{WaveInProgress}}}\mbox{\Hypertarget{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a07e8a04094e482944169b00782d2b67f}\label{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a07e8a04094e482944169b00782d2b67f}} 
+Wave\+In\+Progress&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WaitingToComplete@{WaitingToComplete}!MageGameState.h@{MageGameState.h}}\index{MageGameState.h@{MageGameState.h}!WaitingToComplete@{WaitingToComplete}}}\mbox{\Hypertarget{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a2b455d40b650b6ae2fcdeaa62995e806}\label{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a2b455d40b650b6ae2fcdeaa62995e806}} 
+Waiting\+To\+Complete&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WaveComplete@{WaveComplete}!MageGameState.h@{MageGameState.h}}\index{MageGameState.h@{MageGameState.h}!WaveComplete@{WaveComplete}}}\mbox{\Hypertarget{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a529052acee942c139a92a3c8feccf5f7}\label{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a529052acee942c139a92a3c8feccf5f7}} 
+Wave\+Complete&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GameOver@{GameOver}!MageGameState.h@{MageGameState.h}}\index{MageGameState.h@{MageGameState.h}!GameOver@{GameOver}}}\mbox{\Hypertarget{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a8f347bc7cebca9fa6d97e70c6bc29eb3}\label{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15a8f347bc7cebca9fa6d97e70c6bc29eb3}} 
+Game\+Over&\\
+\hline
+
+\end{DoxyEnumFields}

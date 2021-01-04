@@ -1,0 +1,191 @@
+\hypertarget{class_a_mage_game_mode}{}\doxysection{Referencia de la Clase AMage\+Game\+Mode}
+\label{class_a_mage_game_mode}\index{AMageGameMode@{AMageGameMode}}
+
+
+{\ttfamily \#include $<$Mage\+Game\+Mode.\+h$>$}
+
+Diagrama de herencias de AMage\+Game\+Mode\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_mage_game_mode}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_mage_game_mode_ab14a0878923b413a15ecd4312966dc8d}{AMage\+Game\+Mode}} ()
+\item 
+virtual void \mbox{\hyperlink{class_a_mage_game_mode_a55fd5f63c3f757cd152c7b077e6762da}{Start\+Play}} () override
+\item 
+virtual void \mbox{\hyperlink{class_a_mage_game_mode_a2329884f5eaac307313bd91f44477c3c}{Tick}} (float Delta\+Seconds) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos públicos}
+\begin{DoxyCompactItemize}
+\item 
+FOn\+Actor\+Killed \mbox{\hyperlink{class_a_mage_game_mode_a76a8862a14f3a6d181b175601b6d357e}{On\+Actor\+Killed}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_a_mage_game_mode_a630e9e1eecdab66b1f8bce8949e71fce}{Spawn\+New\+Bot}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_game_mode_a4e3203946d544c54080b81a717e27bb5}{Spawn\+Bot\+Timer\+Elapsed}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_game_mode_ab66669aa3d25a7eb0e655e2bd734d007}{Start\+Wave}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_game_mode_a3ce2b9b457eccc2d9cdcceece3f817c5}{End\+Wave}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_game_mode_aa3094bf4c6a1e974690bc944bef2426e}{Prepare\+For\+Next\+Wave}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_game_mode_a1481e2e309d2eb25a4d1368c2aa52afd}{Check\+Wave\+State}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_game_mode_ae4478874fc4e06ed5bf12c13d2e43577}{Check\+Any\+Player\+Alive}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_game_mode_a4ecc842e6e4c3685c9bff7a13d7b17dc}{Game\+Over}} ()
+\item 
+void \mbox{\hyperlink{class_a_mage_game_mode_a37b8ab0a23f88d5a3653cd510bf10398}{Set\+Wave\+State}} (\mbox{\hyperlink{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15}{EWave\+State}} New\+State)
+\item 
+void \mbox{\hyperlink{class_a_mage_game_mode_af1b4f2f7ba052629639dbff3f1743b87}{Restart\+Dead\+Players}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+FTimer\+Handle \mbox{\hyperlink{class_a_mage_game_mode_a0876a9aa4b190d5ac8f8e0f43bf06a34}{Timer\+Handle\+\_\+\+Bot\+Spawner}}
+\item 
+FTimer\+Handle \mbox{\hyperlink{class_a_mage_game_mode_afc10f90e897b342f7b057c9a340afc15}{Timer\+Handle\+\_\+\+Next\+Wave\+Start}}
+\item 
+int32 \mbox{\hyperlink{class_a_mage_game_mode_a34672f87d72c7a8848abb1a81159e65c}{Nr\+Of\+Bots\+To\+Spawn}}
+\item 
+int32 \mbox{\hyperlink{class_a_mage_game_mode_a6418326b0b8d71f4cba654bc73295663}{Wave\+Count}}
+\item 
+float \mbox{\hyperlink{class_a_mage_game_mode_a7a53a3ab12e775011e4fa7d854df698d}{Time\+Between\+Waves}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_a_mage_game_mode_ab14a0878923b413a15ecd4312966dc8d}\label{class_a_mage_game_mode_ab14a0878923b413a15ecd4312966dc8d}} 
+\index{AMageGameMode@{AMageGameMode}!AMageGameMode@{AMageGameMode}}
+\index{AMageGameMode@{AMageGameMode}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{AMageGameMode()}{AMageGameMode()}}
+{\footnotesize\ttfamily AMage\+Game\+Mode\+::\+AMage\+Game\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_a_mage_game_mode_ae4478874fc4e06ed5bf12c13d2e43577}\label{class_a_mage_game_mode_ae4478874fc4e06ed5bf12c13d2e43577}} 
+\index{AMageGameMode@{AMageGameMode}!CheckAnyPlayerAlive@{CheckAnyPlayerAlive}}
+\index{CheckAnyPlayerAlive@{CheckAnyPlayerAlive}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{CheckAnyPlayerAlive()}{CheckAnyPlayerAlive()}}
+{\footnotesize\ttfamily void AMage\+Game\+Mode\+::\+Check\+Any\+Player\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_a1481e2e309d2eb25a4d1368c2aa52afd}\label{class_a_mage_game_mode_a1481e2e309d2eb25a4d1368c2aa52afd}} 
+\index{AMageGameMode@{AMageGameMode}!CheckWaveState@{CheckWaveState}}
+\index{CheckWaveState@{CheckWaveState}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{CheckWaveState()}{CheckWaveState()}}
+{\footnotesize\ttfamily void AMage\+Game\+Mode\+::\+Check\+Wave\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_a3ce2b9b457eccc2d9cdcceece3f817c5}\label{class_a_mage_game_mode_a3ce2b9b457eccc2d9cdcceece3f817c5}} 
+\index{AMageGameMode@{AMageGameMode}!EndWave@{EndWave}}
+\index{EndWave@{EndWave}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{EndWave()}{EndWave()}}
+{\footnotesize\ttfamily void AMage\+Game\+Mode\+::\+End\+Wave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_a4ecc842e6e4c3685c9bff7a13d7b17dc}\label{class_a_mage_game_mode_a4ecc842e6e4c3685c9bff7a13d7b17dc}} 
+\index{AMageGameMode@{AMageGameMode}!GameOver@{GameOver}}
+\index{GameOver@{GameOver}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{GameOver()}{GameOver()}}
+{\footnotesize\ttfamily void AMage\+Game\+Mode\+::\+Game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_aa3094bf4c6a1e974690bc944bef2426e}\label{class_a_mage_game_mode_aa3094bf4c6a1e974690bc944bef2426e}} 
+\index{AMageGameMode@{AMageGameMode}!PrepareForNextWave@{PrepareForNextWave}}
+\index{PrepareForNextWave@{PrepareForNextWave}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{PrepareForNextWave()}{PrepareForNextWave()}}
+{\footnotesize\ttfamily void AMage\+Game\+Mode\+::\+Prepare\+For\+Next\+Wave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_af1b4f2f7ba052629639dbff3f1743b87}\label{class_a_mage_game_mode_af1b4f2f7ba052629639dbff3f1743b87}} 
+\index{AMageGameMode@{AMageGameMode}!RestartDeadPlayers@{RestartDeadPlayers}}
+\index{RestartDeadPlayers@{RestartDeadPlayers}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{RestartDeadPlayers()}{RestartDeadPlayers()}}
+{\footnotesize\ttfamily void AMage\+Game\+Mode\+::\+Restart\+Dead\+Players (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_a37b8ab0a23f88d5a3653cd510bf10398}\label{class_a_mage_game_mode_a37b8ab0a23f88d5a3653cd510bf10398}} 
+\index{AMageGameMode@{AMageGameMode}!SetWaveState@{SetWaveState}}
+\index{SetWaveState@{SetWaveState}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{SetWaveState()}{SetWaveState()}}
+{\footnotesize\ttfamily void AMage\+Game\+Mode\+::\+Set\+Wave\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_mage_game_state_8h_af102a06de5b4085d09ff8526f11cfb15}{EWave\+State}}}]{New\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_a4e3203946d544c54080b81a717e27bb5}\label{class_a_mage_game_mode_a4e3203946d544c54080b81a717e27bb5}} 
+\index{AMageGameMode@{AMageGameMode}!SpawnBotTimerElapsed@{SpawnBotTimerElapsed}}
+\index{SpawnBotTimerElapsed@{SpawnBotTimerElapsed}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{SpawnBotTimerElapsed()}{SpawnBotTimerElapsed()}}
+{\footnotesize\ttfamily void AMage\+Game\+Mode\+::\+Spawn\+Bot\+Timer\+Elapsed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_a630e9e1eecdab66b1f8bce8949e71fce}\label{class_a_mage_game_mode_a630e9e1eecdab66b1f8bce8949e71fce}} 
+\index{AMageGameMode@{AMageGameMode}!SpawnNewBot@{SpawnNewBot}}
+\index{SpawnNewBot@{SpawnNewBot}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{SpawnNewBot()}{SpawnNewBot()}}
+{\footnotesize\ttfamily void AMage\+Game\+Mode\+::\+Spawn\+New\+Bot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_a55fd5f63c3f757cd152c7b077e6762da}\label{class_a_mage_game_mode_a55fd5f63c3f757cd152c7b077e6762da}} 
+\index{AMageGameMode@{AMageGameMode}!StartPlay@{StartPlay}}
+\index{StartPlay@{StartPlay}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{StartPlay()}{StartPlay()}}
+{\footnotesize\ttfamily void AMage\+Game\+Mode\+::\+Start\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_ab66669aa3d25a7eb0e655e2bd734d007}\label{class_a_mage_game_mode_ab66669aa3d25a7eb0e655e2bd734d007}} 
+\index{AMageGameMode@{AMageGameMode}!StartWave@{StartWave}}
+\index{StartWave@{StartWave}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{StartWave()}{StartWave()}}
+{\footnotesize\ttfamily void AMage\+Game\+Mode\+::\+Start\+Wave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_a2329884f5eaac307313bd91f44477c3c}\label{class_a_mage_game_mode_a2329884f5eaac307313bd91f44477c3c}} 
+\index{AMageGameMode@{AMageGameMode}!Tick@{Tick}}
+\index{Tick@{Tick}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void AMage\+Game\+Mode\+::\+Tick (\begin{DoxyParamCaption}\item[{float}]{Delta\+Seconds }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{class_a_mage_game_mode_a34672f87d72c7a8848abb1a81159e65c}\label{class_a_mage_game_mode_a34672f87d72c7a8848abb1a81159e65c}} 
+\index{AMageGameMode@{AMageGameMode}!NrOfBotsToSpawn@{NrOfBotsToSpawn}}
+\index{NrOfBotsToSpawn@{NrOfBotsToSpawn}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{NrOfBotsToSpawn}{NrOfBotsToSpawn}}
+{\footnotesize\ttfamily int32 AMage\+Game\+Mode\+::\+Nr\+Of\+Bots\+To\+Spawn\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_a76a8862a14f3a6d181b175601b6d357e}\label{class_a_mage_game_mode_a76a8862a14f3a6d181b175601b6d357e}} 
+\index{AMageGameMode@{AMageGameMode}!OnActorKilled@{OnActorKilled}}
+\index{OnActorKilled@{OnActorKilled}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{OnActorKilled}{OnActorKilled}}
+{\footnotesize\ttfamily FOn\+Actor\+Killed AMage\+Game\+Mode\+::\+On\+Actor\+Killed}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_a7a53a3ab12e775011e4fa7d854df698d}\label{class_a_mage_game_mode_a7a53a3ab12e775011e4fa7d854df698d}} 
+\index{AMageGameMode@{AMageGameMode}!TimeBetweenWaves@{TimeBetweenWaves}}
+\index{TimeBetweenWaves@{TimeBetweenWaves}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{TimeBetweenWaves}{TimeBetweenWaves}}
+{\footnotesize\ttfamily float AMage\+Game\+Mode\+::\+Time\+Between\+Waves\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_a0876a9aa4b190d5ac8f8e0f43bf06a34}\label{class_a_mage_game_mode_a0876a9aa4b190d5ac8f8e0f43bf06a34}} 
+\index{AMageGameMode@{AMageGameMode}!TimerHandle\_BotSpawner@{TimerHandle\_BotSpawner}}
+\index{TimerHandle\_BotSpawner@{TimerHandle\_BotSpawner}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{TimerHandle\_BotSpawner}{TimerHandle\_BotSpawner}}
+{\footnotesize\ttfamily FTimer\+Handle AMage\+Game\+Mode\+::\+Timer\+Handle\+\_\+\+Bot\+Spawner\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_afc10f90e897b342f7b057c9a340afc15}\label{class_a_mage_game_mode_afc10f90e897b342f7b057c9a340afc15}} 
+\index{AMageGameMode@{AMageGameMode}!TimerHandle\_NextWaveStart@{TimerHandle\_NextWaveStart}}
+\index{TimerHandle\_NextWaveStart@{TimerHandle\_NextWaveStart}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{TimerHandle\_NextWaveStart}{TimerHandle\_NextWaveStart}}
+{\footnotesize\ttfamily FTimer\+Handle AMage\+Game\+Mode\+::\+Timer\+Handle\+\_\+\+Next\+Wave\+Start\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_a_mage_game_mode_a6418326b0b8d71f4cba654bc73295663}\label{class_a_mage_game_mode_a6418326b0b8d71f4cba654bc73295663}} 
+\index{AMageGameMode@{AMageGameMode}!WaveCount@{WaveCount}}
+\index{WaveCount@{WaveCount}!AMageGameMode@{AMageGameMode}}
+\doxysubsubsection{\texorpdfstring{WaveCount}{WaveCount}}
+{\footnotesize\ttfamily int32 AMage\+Game\+Mode\+::\+Wave\+Count\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+Public/\mbox{\hyperlink{_mage_game_mode_8h}{Mage\+Game\+Mode.\+h}}\item 
+Private/\mbox{\hyperlink{_mage_game_mode_8cpp}{Mage\+Game\+Mode.\+cpp}}\end{DoxyCompactItemize}

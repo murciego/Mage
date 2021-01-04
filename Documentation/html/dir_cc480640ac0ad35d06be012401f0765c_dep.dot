@@ -1,0 +1,13 @@
+digraph "D:/proyectos/UnrealEngine" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_648564f27312f2065c7e7539bc8807bb {
+    graph [ bgcolor="#ddddee", pencolor="black", label="proyectos" fontname="Helvetica", fontsize="10", URL="dir_648564f27312f2065c7e7539bc8807bb.html"]
+  subgraph clusterdir_cc480640ac0ad35d06be012401f0765c {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_cc480640ac0ad35d06be012401f0765c.html"];
+    dir_cc480640ac0ad35d06be012401f0765c [shape=plaintext label="UnrealEngine"];
+    dir_70a0cefb9de39a088217b349899dce84 [shape=box label="Unreal Projects" color="red" fillcolor="white" style="filled" URL="dir_70a0cefb9de39a088217b349899dce84.html"];
+  }
+  }
+}
