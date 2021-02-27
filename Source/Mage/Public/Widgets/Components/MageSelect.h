@@ -4,13 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "MageSelect.generated.h"
+#include "MageOptionBase.h"
 
+#include "MageSelect.generated.h"
 /**
  * 
  */
 UCLASS()
-class MAGE_API UMageSelect : public UUserWidget
+class MAGE_API UMageSelect : public UMageOptionBase
 {
 	GENERATED_BODY()
 	

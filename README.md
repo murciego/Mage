@@ -16,3 +16,12 @@ Developed with Unreal Engine 4
 - https://learn.unrealengine.com/home/dashboard
 # Doc:
 - https://docs.unrealengine.com/en-US/BlueprintAPI/index.html?utm_medium=referral&utm_campaign=ZEEF&utm_source=https%3A%2F%2Funreal-engine-4.zeef.com%2Ftom.looman
+- https://unreal-engine-4.zeef.com/tom.looman
+
+# Effects:
+- https://www.youtube.com/watch?v=ZZQo89xUqxs
+- https://www.youtube.com/watch?v=HypC4sNEpM0
+
+
+# TODO
+- Struct declarado en otra clase

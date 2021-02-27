@@ -14,21 +14,41 @@
 #include "widgetConfig.generated.h"
 class MageGameUserSettings;
 
+UENUM(BlueprintType)
+enum class EConfiguration : uint8 {
+	CONF_Resolution UMETA(DisplayName = "Resolución"),
+	CONF_AA UMETA(DisplayName = "Antialiasing"),
+	CONF_Shadows UMETA(DisplayName = "Sombras"),
+	CONF_FPS UMETA(DisplayName = "FPS"),
+	CONF_Textures UMETA(DisplayName = "Texturas"),
+	CONF_Effects UMETA(DisplayName = "Efectos"),
+	CONF_Detail UMETA(DisplayName = "Detalles"),
+	CONF_FullScreen UMETA(DisplayName = "Pantalla completa")
+};
+UENUM(BlueprintType)
+enum class EConfigType : uint8 {
+	CONFTYPE_Select UMETA(DisplayName = "Select"),
+	CONFTYPE_Boolean UMETA(DisplayName = "Check")
+};
 /**
  * struct,BlueprintType
  * Struct para almacenar los datos de las configuraciones
  * @author Jorge Murciego
  */
 USTRUCT(BlueprintType)
-struct FMageConfig
+struct FMageConfiguration
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY()
-		FString Name;//!< Nombre de la configuracion
-	UPROPERTY()
-		FString conf;
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite)
+		FText Name;//!< Nombre de la configuracion
+	UPROPERTY(BlueprintReadWrite)
+		EConfiguration configuration;
+	UPROPERTY(BlueprintReadWrite)
+		EConfigType configType;
+	UPROPERTY(BlueprintReadWrite)
+		uint8 configLevels;//!< 1(bajo), 2(bajo,medio)...
+	UPROPERTY(BlueprintReadWrite)
 		uint8 index;//!< Indice de la configuracion (bajo, medio, alto...)
 };
 
@@ -49,9 +69,7 @@ public:
 		void init();//!< BlueprintCallable, Constructor
 	UFUNCTION(BlueprintCallable)
 		void SaveConfig();//!< BlueprintCallable, Guarda la configuración
-	UPROPERTY()
-		FMageConfig mageConfiguration;//!< BlueprintCallable, Struct de configuración
+	UPROPERTY(BlueprintReadWrite)
+		TArray<FMageConfiguration> mageConfigurations;//!< BlueprintCallable, Struct de configuración
 
-
-	
 };
